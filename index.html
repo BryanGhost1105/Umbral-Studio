@@ -32,9 +32,11 @@
     <link rel="dns-prefetch" href="https://images.unsplash.com">
 
     <!-- Fonts -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Geist:wght@100;300;400;500;600;700;800;900&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Geist:wght@100;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
 
 
     <style>
@@ -70,9 +72,9 @@
             --text-muted: #737373;
             /* Neutral medium gray */
             --border-color: rgba(0, 0, 0, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.831)
-                /* White-tinted glass */
-                --glass-highlight: rgba(255, 255, 255, 0.4);
+            --glass-bg: rgba(255, 255, 255, 0.831);
+            /* White-tinted glass */
+            --glass-highlight: rgba(255, 255, 255, 0.4);
             --stroke-color: rgba(0, 0, 0, 0.04);
             --accent: #1a1a1a;
             /* Strong black-charcoal accent */
@@ -833,9 +835,9 @@
 
             <button id="theme-toggle" aria-label="Toggle Dark/Light Mode"
                 class="hoverable p-2 rounded-full border border-[var(--border-color)] bg-[var(--glass-bg)] backdrop-blur-sm transition-colors relative overflow-hidden group w-10 h-10 flex items-center justify-center">
-                <iconify-icon icon="solar:sun-2-linear"
+                <iconify-icon aria-hidden="true" icon="solar:sun-2-linear"
                     class="text-lg theme-icon absolute transition-all duration-500 rotate-0 scale-100 dark-icon"></iconify-icon>
-                <iconify-icon icon="solar:moon-linear"
+                <iconify-icon aria-hidden="true" icon="solar:moon-linear"
                     class="text-lg theme-icon absolute transition-all duration-500 rotate-90 scale-0 opacity-0 light-icon"></iconify-icon>
             </button>
 
@@ -849,7 +851,8 @@
         <div class="flex items-center gap-4 md:hidden relative z-50">
             <button id="theme-toggle-mobile" aria-label="Toggle Theme"
                 class="hoverable p-2 rounded-full border border-[var(--border-color)] bg-[var(--glass-bg)] transition-colors w-9 h-9 flex items-center justify-center">
-                <iconify-icon icon="solar:sun-2-linear" class="text-lg theme-icon dark-icon"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="solar:sun-2-linear"
+                    class="text-lg theme-icon dark-icon"></iconify-icon>
             </button>
 
             <button id="menu-toggle" aria-label="Open Navigation Menu"
@@ -971,7 +974,7 @@
                             <div
                                 class="relative w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-[var(--border-color)] to-transparent border border-[var(--border-color)] flex items-center justify-center mb-3 overflow-hidden shadow-inner">
                                 <div class="absolute inset-0 bg-[var(--text-main)] opacity-5"></div>
-                                <iconify-icon icon="solar:layers-minimalistic-linear"
+                                <iconify-icon aria-hidden="true" icon="solar:layers-minimalistic-linear"
                                     class="text-3xl md:text-4xl text-[var(--text-main)]"></iconify-icon>
                                 <!-- Scan effect -->
                                 <div
@@ -992,7 +995,7 @@
                             class="absolute top-[20%] left-[10%] w-24 md:w-28 p-2 iso-card rounded-lg flex flex-col items-center gap-2 z-10 animate-[float-delayed_7s_ease-in-out_infinite]">
                             <div
                                 class="w-8 h-8 rounded-full border border-[var(--border-color)] flex items-center justify-center bg-[var(--bg-color)]">
-                                <iconify-icon icon="solar:chart-square-linear"
+                                <iconify-icon aria-hidden="true" icon="solar:chart-square-linear"
                                     class="text-[var(--text-muted)]"></iconify-icon>
                             </div>
                             <div class="h-1 w-12 bg-[var(--border-color)] rounded-full overflow-hidden">
@@ -1015,7 +1018,8 @@
                         <!-- Satellite Node 3: Design (Top Right) -->
                         <div
                             class="absolute top-[15%] right-[10%] w-10 h-10 md:w-12 md:h-12 rounded-full iso-card flex items-center justify-center z-10 animate-[float-delayed_5s_ease-in-out_infinite]">
-                            <iconify-icon icon="solar:palette-linear" class="text-[var(--text-main)]"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:palette-linear"
+                                class="text-[var(--text-main)]"></iconify-icon>
                         </div>
 
                         <!-- Satellite Node 4: Database (Bottom Left) -->
@@ -1045,20 +1049,20 @@
                     for Premium Results</p>
                 <div
                     class="flex flex-wrap justify-center items-center gap-8 md:gap-20 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 select-none pb-2">
-                    <iconify-icon icon="logos:figma" class="text-2xl md:text-3xl floating-logo"
+                    <iconify-icon aria-hidden="true" icon="logos:figma" class="text-2xl md:text-3xl floating-logo"
                         aria-label="Figma"></iconify-icon>
-                    <iconify-icon icon="logos:pnpm" class="text-2xl md:text-3xl floating-logo"
+                    <iconify-icon aria-hidden="true" icon="logos:pnpm" class="text-2xl md:text-3xl floating-logo"
                         aria-label="PNPM"></iconify-icon>
-                    <iconify-icon icon="logos:webflow" class="text-2xl md:text-3xl floating-logo"
+                    <iconify-icon aria-hidden="true" icon="logos:webflow" class="text-2xl md:text-3xl floating-logo"
                         aria-label="Webflow"></iconify-icon>
-                    <iconify-icon icon="logos:react" class="text-2xl md:text-3xl floating-logo"
+                    <iconify-icon aria-hidden="true" icon="logos:react" class="text-2xl md:text-3xl floating-logo"
                         aria-label="React"></iconify-icon>
-                    <iconify-icon icon="logos:nextjs-icon" class="text-2xl md:text-3xl theme-invert floating-logo"
-                        aria-label="Next.js"></iconify-icon>
-                    <iconify-icon icon="logos:tailwindcss-icon" class="text-2xl md:text-3xl floating-logo"
-                        aria-label="Tailwind CSS"></iconify-icon>
-                    <iconify-icon icon="logos:framer" class="text-2xl md:text-3xl theme-invert floating-logo"
-                        aria-label="Framer"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="logos:nextjs-icon"
+                        class="text-2xl md:text-3xl theme-invert floating-logo" aria-label="Next.js"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="logos:tailwindcss-icon"
+                        class="text-2xl md:text-3xl floating-logo" aria-label="Tailwind CSS"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="logos:framer"
+                        class="text-2xl md:text-3xl theme-invert floating-logo" aria-label="Framer"></iconify-icon>
                 </div>
             </div>
         </section>
@@ -1084,22 +1088,26 @@
                         <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mt-8">
                             <li
                                 class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Direct
+                                <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
+                                    class="text-lg"></iconify-icon> Direct
                                 Communication
                             </li>
                             <li
                                 class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Faster
+                                <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
+                                    class="text-lg"></iconify-icon> Faster
                                 Turnarounds
                             </li>
                             <li
                                 class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Strategy
+                                <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
+                                    class="text-lg"></iconify-icon> Strategy
                                 First
                             </li>
                             <li
                                 class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
+                                    class="text-lg"></iconify-icon>
                                 Conversion Focused
                             </li>
                         </ul>
@@ -1109,7 +1117,7 @@
                 <div class="order-1 md:order-2 relative aspect-video md:aspect-[4/5] rounded-xl overflow-hidden reveal-item fade-up"
                     style="transition-delay: 0.2s">
                     <img src="img/navigator (1).jpeg" class="absolute inset-0 w-full h-full object-cover img-zoom-bw"
-                        alt="Precision Design Strategy" loading="lazy" decoding="async">
+                        alt="Precision Design Strategy" loading="lazy" decoding="async" width="800" height="1000">
                     <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] to-transparent opacity-80">
                     </div>
                 </div>
@@ -1117,7 +1125,7 @@
         </section>
 
         <!-- 3. SERVICES SECTION -->
-        <section id="services"
+        <section id="services" style="content-visibility: auto; contain-intrinsic-size: 1000px;"
             class="py-16 md:py-32 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
             <div class="section-label hidden sm:block">[ 02. SERVICES ]</div>
 
@@ -1138,7 +1146,8 @@
                     <div class="z-10 relative">
                         <div
                             class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
-                            <iconify-icon icon="solar:laptop-minimalistic-linear" stroke-width="1.5"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:laptop-minimalistic-linear"
+                                stroke-width="1.5"></iconify-icon>
                         </div>
                         <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Web Design &amp; Build</h3>
                         <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
@@ -1146,13 +1155,15 @@
                             implementation.
                         </p>
                         <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
-                            <iconify-icon icon="solar:graph-up-linear" class="text-metric"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:graph-up-linear"
+                                class="text-metric"></iconify-icon>
                             <span>Avg. 2-4 week delivery</span>
                         </div>
                     </div>
                     <div
                         class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                        <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"
+                            class="text-3xl"></iconify-icon>
                     </div>
                     <!-- Hover BG -->
                     <div
@@ -1167,7 +1178,8 @@
                     <div class="z-10 relative">
                         <div
                             class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
-                            <iconify-icon icon="solar:rocket-2-linear" stroke-width="1.5"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:rocket-2-linear"
+                                stroke-width="1.5"></iconify-icon>
                         </div>
                         <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Landing Pages</h3>
                         <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
@@ -1175,13 +1187,15 @@
                             action.
                         </p>
                         <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
-                            <iconify-icon icon="solar:graph-up-linear" class="text-metric"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:graph-up-linear"
+                                class="text-metric"></iconify-icon>
                             <span>Avg. +18–35% conversion lift</span>
                         </div>
                     </div>
                     <div
                         class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                        <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"
+                            class="text-3xl"></iconify-icon>
                     </div>
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-[var(--border-color)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500">
@@ -1195,7 +1209,8 @@
                     <div class="z-10 relative">
                         <div
                             class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
-                            <iconify-icon icon="solar:tuning-square-2-linear" stroke-width="1.5"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:tuning-square-2-linear"
+                                stroke-width="1.5"></iconify-icon>
                         </div>
                         <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Optimization</h3>
                         <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
@@ -1203,13 +1218,15 @@
                             refinement.
                         </p>
                         <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
-                            <iconify-icon icon="solar:stopwatch-linear" class="text-metric"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:stopwatch-linear"
+                                class="text-metric"></iconify-icon>
                             <span>Measurable gains within 14 days</span>
                         </div>
                     </div>
                     <div
                         class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                        <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"
+                            class="text-3xl"></iconify-icon>
                     </div>
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-[var(--border-color)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500">
@@ -1244,7 +1261,7 @@
                         <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
                             <img src="img/maestro.png" alt="FinFlow SaaS Dashboard"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="600" height="400">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
                             </div>
@@ -1254,7 +1271,8 @@
                             <div class="mb-4 flex justify-between items-start">
                                 <div
                                     class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
-                                    <iconify-icon icon="solar:chart-square-bold-duotone"></iconify-icon>
+                                    <iconify-icon aria-hidden="true"
+                                        icon="solar:chart-square-bold-duotone"></iconify-icon>
                                 </div>
                                 <span
                                     class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">SaaS
@@ -1266,7 +1284,7 @@
 
                             <div class="pt-4 border-t border-[var(--border-color)]">
                                 <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
-                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"></iconify-icon>
                                     <span>+42% qualified demo requests</span>
                                 </div>
                                 <p
@@ -1294,7 +1312,7 @@
                         <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
                             <img src="img/portfolio.png" alt="Architecture Firm Portfolio"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="600" height="400">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
                             </div>
@@ -1304,7 +1322,8 @@
                             <div class="mb-4 flex justify-between items-start">
                                 <div
                                     class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
-                                    <iconify-icon icon="solar:buildings-2-bold-duotone"></iconify-icon>
+                                    <iconify-icon aria-hidden="true"
+                                        icon="solar:buildings-2-bold-duotone"></iconify-icon>
                                 </div>
                                 <span
                                     class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">Architecture</span>
@@ -1315,7 +1334,7 @@
 
                             <div class="pt-4 border-t border-[var(--border-color)]">
                                 <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
-                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"></iconify-icon>
                                     <span>3x increase in project inquiries</span>
                                 </div>
                                 <p
@@ -1342,7 +1361,7 @@
                         <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
                             <img src="img/health.png" alt="Health Tech User Interface"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="600" height="400">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
                             </div>
@@ -1352,7 +1371,7 @@
                             <div class="mb-4 flex justify-between items-start">
                                 <div
                                     class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
-                                    <iconify-icon icon="solar:health-bold-duotone"></iconify-icon>
+                                    <iconify-icon aria-hidden="true" icon="solar:health-bold-duotone"></iconify-icon>
                                 </div>
                                 <span
                                     class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">Health
@@ -1364,7 +1383,7 @@
 
                             <div class="pt-4 border-t border-[var(--border-color)]">
                                 <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
-                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-up-linear"></iconify-icon>
                                     <span>-60% booking drop-off rate</span>
                                 </div>
                                 <p
@@ -1385,7 +1404,7 @@
         </section>
 
         <!-- 4. PROCESS SECTION -->
-        <section id="process"
+        <section id="process" style="content-visibility: auto; contain-intrinsic-size: 1000px;"
             class="py-16 md:py-32 bg-[var(--bg-color)] flex flex-col items-center justify-center border-t border-[var(--border-color)] relative overflow-hidden transition-colors duration-500">
             <div class="section-label hidden sm:block">[ 04. HOW IT WORKS ]</div>
 
@@ -1410,10 +1429,10 @@
 
                 <!-- Step 2 Arrow -->
                 <div class="hidden md:flex items-center justify-center pt-16 opacity-30">
-                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
                 </div>
                 <div class="md:hidden flex items-center justify-center opacity-30 rotate-90">
-                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
                 </div>
 
                 <!-- Step 2 -->
@@ -1428,10 +1447,10 @@
 
                 <!-- Step 3 Arrow -->
                 <div class="hidden md:flex items-center justify-center pt-16 opacity-30">
-                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
                 </div>
                 <div class="md:hidden flex items-center justify-center opacity-30 rotate-90">
-                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
                 </div>
 
                 <!-- Step 3 -->
@@ -1466,7 +1485,8 @@
                         <!-- Metric 1 -->
                         <div class="space-y-2">
                             <div class="flex items-center gap-2 text-[var(--text-main)]">
-                                <iconify-icon icon="solar:graph-up-linear" class="text-2xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:graph-up-linear"
+                                    class="text-2xl"></iconify-icon>
                                 <span class="font-medium">Engagement</span>
                             </div>
                             <p class="text-sm text-[var(--text-muted)]">Increased time-on-site through clearer content
@@ -1476,7 +1496,8 @@
                         <!-- Metric 2 -->
                         <div class="space-y-2">
                             <div class="flex items-center gap-2 text-[var(--text-main)]">
-                                <iconify-icon icon="solar:stopwatch-linear" class="text-2xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:stopwatch-linear"
+                                    class="text-2xl"></iconify-icon>
                                 <span class="font-medium">Load Times</span>
                             </div>
                             <p class="text-sm text-[var(--text-muted)]">Lean development for sub-second page loads.</p>
@@ -1485,7 +1506,8 @@
                         <!-- Metric 3 -->
                         <div class="space-y-2">
                             <div class="flex items-center gap-2 text-[var(--text-main)]">
-                                <iconify-icon icon="solar:mouse-circle-linear" class="text-2xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:mouse-circle-linear"
+                                    class="text-2xl"></iconify-icon>
                                 <span class="font-medium">Conversion</span>
                             </div>
                             <p class="text-sm text-[var(--text-muted)]">Frictionless paths to contact and purchase.</p>
@@ -1494,7 +1516,8 @@
                         <!-- Metric 4 -->
                         <div class="space-y-2">
                             <div class="flex items-center gap-2 text-[var(--text-main)]">
-                                <iconify-icon icon="solar:accessibility-linear" class="text-2xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:accessibility-linear"
+                                    class="text-2xl"></iconify-icon>
                                 <span class="font-medium">Accessibility</span>
                             </div>
                             <p class="text-sm text-[var(--text-muted)]">Inclusive design that reaches a wider audience.
@@ -1505,7 +1528,8 @@
                     <!-- Added outcome-focused statement -->
                     <div class="mt-8 pt-6 border-t border-[var(--border-color)]">
                         <p class="text-sm text-[var(--text-main)] font-medium">
-                            <iconify-icon icon="solar:verified-check-linear" class="text-metric mr-2"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:verified-check-linear"
+                                class="text-metric mr-2"></iconify-icon>
                             Every decision is tied to a measurable business outcome.
                         </p>
                     </div>
@@ -1554,7 +1578,8 @@
                                         Visitors</div>
                                     <div class="text-3xl font-display font-medium">128.4k</div>
                                     <div class="flex items-center gap-1 text-[10px] text-metric mt-1">
-                                        <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon> +12.5%
+                                        <iconify-icon aria-hidden="true"
+                                            icon="solar:arrow-right-up-linear"></iconify-icon> +12.5%
                                     </div>
                                 </div>
 
@@ -1655,7 +1680,8 @@
                             class="absolute w-48 h-32 bg-[var(--bg-color)] border border-[var(--border-color)] rounded-lg transform rotate-0 z-10 flex items-center justify-center shadow-2xl">
                             <div
                                 class="w-10 h-10 rounded-full bg-[var(--text-main)] text-[var(--bg-color)] flex items-center justify-center">
-                                <iconify-icon icon="solar:check-read-linear" class="text-2xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:check-read-linear"
+                                    class="text-2xl"></iconify-icon>
                             </div>
                         </div>
                         <!-- Card 3 -->
@@ -1672,7 +1698,7 @@
                     <div
                         class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up">
                         <div class="mb-4 text-[var(--text-main)] text-xl">
-                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:quote-up-square-linear"></iconify-icon>
                         </div>
                         <p class="text-lg leading-relaxed mb-6 font-display">
                             "Umbral didn't just build a website; they helped us clarify our entire product strategy. The
@@ -1681,7 +1707,7 @@
                         <div class="flex items-center gap-3">
                             <img src="img/faces (2).jpg" alt="Alex V."
                                 class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="40" height="40">
                             <div>
                                 <div class="text-sm font-semibold">Alex V.</div>
                                 <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">Founder, FinFlow ·
@@ -1695,7 +1721,7 @@
                     <div class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up"
                         style="transition-delay: 0.1s">
                         <div class="mb-4 text-[var(--text-main)] text-xl">
-                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:quote-up-square-linear"></iconify-icon>
                         </div>
                         <p class="text-lg leading-relaxed mb-6 font-display">
                             "Finally, a designer who understands business objectives. No fluff, just high-quality
@@ -1704,7 +1730,7 @@
                         <div class="flex items-center gap-3">
                             <img src="img/faces (1).jpg" alt="Sarah J."
                                 class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="40" height="40">
                             <div>
                                 <div class="text-sm font-semibold">Sarah J.</div>
                                 <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">Product Lead,
@@ -1717,7 +1743,7 @@
                     <div class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up"
                         style="transition-delay: 0.2s">
                         <div class="mb-4 text-[var(--text-main)] text-xl">
-                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                            <iconify-icon aria-hidden="true" icon="solar:quote-up-square-linear"></iconify-icon>
                         </div>
                         <p class="text-lg leading-relaxed mb-6 font-display">
                             "The easiest collaboration I've had in years. The transition from Figma to live site was
@@ -1726,7 +1752,7 @@
                         <div class="flex items-center gap-3">
                             <img src="img/faces (3).jpg" alt="David K."
                                 class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
-                                loading="lazy" decoding="async">
+                                loading="lazy" decoding="async" width="40" height="40">
                             <div>
                                 <div class="text-sm font-semibold">David K.</div>
                                 <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">CTO, Nexus Systems
@@ -1766,17 +1792,17 @@
 
                             <ul class="space-y-3 mb-8 text-sm text-left inline-block">
                                 <li class="flex items-center gap-3">
-                                    <iconify-icon icon="solar:check-circle-linear"
+                                    <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
                                         class="text-[var(--text-main)]"></iconify-icon>
                                     <span>UX &amp; Friction Analysis</span>
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <iconify-icon icon="solar:check-circle-linear"
+                                    <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
                                         class="text-[var(--text-main)]"></iconify-icon>
                                     <span>Visual Hierarchy Review</span>
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <iconify-icon icon="solar:check-circle-linear"
+                                    <iconify-icon aria-hidden="true" icon="solar:check-circle-linear"
                                         class="text-[var(--text-main)]"></iconify-icon>
                                     <span>Actionable Next Steps</span>
                                 </li>
@@ -1786,7 +1812,7 @@
                                 <a href="#contact"
                                     class="inline-flex items-center gap-2 hoverable px-8 py-3 rounded-full bg-[var(--text-main)] text-[var(--bg-color)] font-semibold text-sm tracking-wide uppercase hover:scale-105 transition-transform duration-300">
                                     <span>Request Free Audit</span>
-                                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                                    <iconify-icon aria-hidden="true" icon="solar:arrow-right-linear"></iconify-icon>
                                 </a>
                             </div>
                             <p class="mt-4 text-xs text-[var(--text-muted)] opacity-60">No sales pitch. No obligation.
@@ -1853,64 +1879,74 @@
                         discuss your project</a>
                 </div>
 
-                <div class="space-y-0">
-                    <!-- Item 1 -->
-                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
-                        <div class="py-4 md:py-6 flex justify-between items-center">
-                            <h4 class="text-lg md:text-xl font-medium pr-4">Perfect for early-stage startups?</h4>
-                            <iconify-icon icon="solar:add-linear"
-                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
-                                Absolutely. We specialize in helping early-stage founders get off the ground with
-                                professional, scalable websites that don't break the bank but look like a million bucks.
-                            </p>
-                        </div>
+                <div class="accordion-item group hoverable cursor-pointer" role="button" tabindex="0"
+                    aria-expanded="false"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open')); event.preventDefault();}"
+                    onclick="this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open'))">
+                    <div class="py-4 md:py-6 flex justify-between items-center">
+                        <h4 class="text-lg md:text-xl font-medium pr-4">Perfect for early-stage startups?</h4>
+                        <iconify-icon aria-hidden="true" icon="solar:add-linear"
+                            class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
-                        <div class="py-4 md:py-6 flex justify-between items-center">
-                            <h4 class="text-lg md:text-xl font-medium pr-4">How flexible is the pricing?</h4>
-                            <iconify-icon icon="solar:add-linear"
-                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
-                                We offer flat-rate project fees so there are no surprises. We can structure payments in
-                                milestones to aid your cash flow.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
-                        <div class="py-4 md:py-6 flex justify-between items-center">
-                            <h4 class="text-lg md:text-xl font-medium pr-4">What is the typical timeline?</h4>
-                            <iconify-icon icon="solar:add-linear"
-                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
-                                Most websites take between 2-4 weeks from strategy to launch. We move fast without
-                                sacrificing quality.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
-                        <div class="py-4 md:py-6 flex justify-between items-center">
-                            <h4 class="text-lg md:text-xl font-medium pr-4">Do I own the code?</h4>
-                            <iconify-icon icon="solar:add-linear"
-                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
-                                100%. Once the final payment is made, you own everything. No lock-in contracts or hidden
-                                recurring fees.
-                            </p>
-                        </div>
+                    <div class="accordion-content">
+                        <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                            Absolutely. We specialize in helping early-stage founders get off the ground with
+                            professional, scalable websites that don't break the bank but look like a million bucks.
+                        </p>
                     </div>
                 </div>
+                <!-- Item 2 -->
+                <div class="accordion-item group hoverable cursor-pointer" role="button" tabindex="0"
+                    aria-expanded="false"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open')); event.preventDefault();}"
+                    onclick="this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open'))">
+                    <div class="py-4 md:py-6 flex justify-between items-center">
+                        <h4 class="text-lg md:text-xl font-medium pr-4">How flexible is the pricing?</h4>
+                        <iconify-icon aria-hidden="true" icon="solar:add-linear"
+                            class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                            We offer flat-rate project fees so there are no surprises. We can structure payments in
+                            milestones to aid your cash flow.
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="accordion-item group hoverable cursor-pointer" role="button" tabindex="0"
+                    aria-expanded="false"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open')); event.preventDefault();}"
+                    onclick="this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open'))">
+                    <div class="py-4 md:py-6 flex justify-between items-center">
+                        <h4 class="text-lg md:text-xl font-medium pr-4">What is the typical timeline?</h4>
+                        <iconify-icon aria-hidden="true" icon="solar:add-linear"
+                            class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                            Most websites take between 2-4 weeks from strategy to launch. We move fast without
+                            sacrificing quality.
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="accordion-item group hoverable cursor-pointer" role="button" tabindex="0"
+                    aria-expanded="false"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open')); event.preventDefault();}"
+                    onclick="this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open'))">
+                    <div class="py-4 md:py-6 flex justify-between items-center">
+                        <h4 class="text-lg md:text-xl font-medium pr-4">Do I own the code?</h4>
+                        <iconify-icon aria-hidden="true" icon="solar:add-linear"
+                            class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                            100%. Once the final payment is made, you own everything. No lock-in contracts or hidden
+                            recurring fees.
+                        </p>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 
@@ -1963,14 +1999,16 @@
                         <div class="flex items-center gap-4 text-[var(--text-main)]">
                             <div
                                 class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center">
-                                <iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:letter-linear"
+                                    class="text-xl"></iconify-icon>
                             </div>
                             <span class="text-sm font-medium">hello@umbral.studio</span>
                         </div>
                         <div class="flex items-center gap-4 text-[var(--text-main)]">
                             <div
                                 class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center">
-                                <iconify-icon icon="solar:map-point-linear" class="text-xl"></iconify-icon>
+                                <iconify-icon aria-hidden="true" icon="solar:map-point-linear"
+                                    class="text-xl"></iconify-icon>
                             </div>
                             <span class="text-sm font-medium">San Fransisco, DS / Global</span>
                         </div>
@@ -2083,6 +2121,11 @@
                         }
                     }
                 });
+
+                // Update accessibility labels
+                document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
+                    btn.setAttribute('aria-label', isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+                });
             }
 
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
@@ -2128,24 +2171,32 @@
             });
 
 
-            // --- 1. PRELOADER (Adaptive) ---
+            // --- 1. PRELOADER (Adaptive & Smart) ---
             const preloader = document.getElementById('preloader');
             const progress = document.getElementById('loader-progress');
             let loadVal = 0;
             let isWindowLoaded = false;
 
-            window.addEventListener('load', () => {
-                isWindowLoaded = true;
-            });
+            window.addEventListener('load', () => { isWindowLoaded = true; });
+
+            // Failsafe: Don't wait more than 5s
+            const failsafe = setTimeout(() => { isWindowLoaded = true; }, 5000);
 
             const loadInterval = setInterval(() => {
-                // Slower increment if window not loaded, faster if it is
-                const step = isWindowLoaded ? 15 : (Math.floor(Math.random() * 5) + 2);
+                // If not loaded yet, slow down as we approach 90%
+                let step;
+                if (!isWindowLoaded) {
+                    step = loadVal >= 90 ? 0 : (Math.floor(Math.random() * 3) + 1);
+                } else {
+                    step = 15; // Fast finish
+                }
+
                 loadVal += step;
 
                 if (loadVal >= 100) {
                     loadVal = 100;
                     clearInterval(loadInterval);
+                    clearTimeout(failsafe);
                     finishLoading();
                 }
                 progress.style.width = loadVal + '%';
