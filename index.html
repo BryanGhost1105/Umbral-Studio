@@ -1,0 +1,2341 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMBRAL STUDIO | Strategic Web Design for Founders</title>
+    <meta name="description"
+        content="Umbral Studio builds premium, high-performance websites for founders who value clarity. Strategic design, clean code, and loud results.">
+    <meta name="keywords"
+        content="web design, strategic design, startup websites, premium web development, SaaS design">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UMBRAL STUDIO | Strategic Web Design">
+    <meta property="og:description" content="Build your next high-performance digital presence with Umbral Studio.">
+    <meta property="og:image" content="img/maestro.png">
+
+    <!-- Favicon Placeholder (Can be updated with real icon) -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" async></script>
+    <!-- Performance Optimization: Resource Hints -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://code.iconify.design">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://code.iconify.design">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Geist:wght@100;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --bg-color: #080808;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-highlight: rgba(255, 255, 255, 0.05);
+            --stroke-color: rgba(255, 255, 255, 0.1);
+            --accent: #ffffffc2;
+            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+            --ease-in-out: cubic-bezier(0.86, 0, 0.07, 1);
+            --grid-color: rgba(255, 255, 255, 0.03);
+            --nav-height: 80px;
+            --glow-primary: rgba(120, 119, 198, 0.3);
+            --glow-secondary: rgba(56, 189, 248, 0.3);
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --card-hover-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7);
+            --input-bg: rgba(255, 255, 255, 0.03);
+            --input-focus-bg: rgba(255, 255, 255, 0.07);
+            --metric-accent: #7dbb94;
+        }
+
+        /* --- LIGHT MODE OVERRIDES (Slate Blue Theme) --- */
+        body.light-mode {
+            --bg-color: #cdd5dc;
+            /* Cool gray-blue base */
+            --text-main: #2a3442;
+            /* Deep slate */
+            --text-muted: #5a6a7a;
+            /* Muted steel blue */
+            --border-color: rgba(42, 52, 66, 0.18);
+            --glass-bg: rgba(165, 180, 195, 0.65);
+            /* Blue-tinted glass */
+            --glass-highlight: rgba(210, 220, 230, 0.35);
+            --stroke-color: rgba(42, 52, 66, 0.1);
+            --accent: #3d4a5c;
+            /* Professional navy accent */
+            --grid-color: rgba(42, 52, 66, 0.06);
+            --glow-primary: rgba(80, 100, 130, 0.15);
+            --glow-secondary: rgba(100, 130, 170, 0.12);
+            --card-shadow: 0 10px 30px -10px rgba(35, 45, 60, 0.15);
+            --card-hover-shadow: 0 25px 50px -12px rgba(35, 45, 60, 0.2);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-focus-bg: rgba(0, 0, 0, 0.08);
+            --metric-accent: #5d8c71;
+        }
+
+        /* Contact form specific styling */
+        #contact-form input,
+        #contact-form select,
+        #contact-form textarea {
+            background-color: var(--input-bg) !important;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        #contact-form input:focus,
+        #contact-form select:focus,
+        #contact-form textarea:focus,
+        #contact-form input:active,
+        #contact-form select:active,
+        #contact-form textarea:active {
+            background-color: var(--input-focus-bg) !important;
+            border-color: var(--text-main);
+            box-shadow: 0 0 0 1px var(--text-main);
+            outline: none;
+        }
+
+        /* Metric Accent Utility */
+        .text-metric {
+            color: var(--metric-accent) !important;
+        }
+
+        .bg-metric {
+            background-color: var(--metric-accent) !important;
+        }
+
+        .border-metric {
+            border-color: var(--metric-accent) !important;
+        }
+
+        /* --- BASE SETTINGS --- */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* --- UI UTILS --- */
+        .section-label {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 20;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            background: var(--glass-bg);
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 640px) {
+            .section-label {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 1rem;
+            }
+        }
+
+        /* --- FX: NOISE --- */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 90;
+            opacity: 0.03;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* --- FX: PRELOADER --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 1s var(--ease-in-out);
+        }
+
+        #preloader.loaded {
+            transform: translateY(-100%);
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 1px;
+            background: var(--border-color);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--text-main);
+            transition: width 0.1s linear;
+        }
+
+        /* --- FX: CURSOR (Desktop Only) --- */
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+
+            .cursor-dot {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 4px;
+                background: var(--text-main);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                pointer-events: none;
+            }
+
+            .cursor-circle {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 30px;
+                height: 30px;
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9998;
+                pointer-events: none;
+                transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+            }
+
+            .cursor-circle.hovered {
+                width: 60px;
+                height: 60px;
+                background-color: rgba(255, 255, 255, 0.03);
+                border-color: var(--text-muted);
+                backdrop-filter: blur(2px);
+            }
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal-item {
+            opacity: 0;
+            transition: all 1s var(--ease-out);
+        }
+
+        .reveal-item.fade-up {
+            transform: translateY(40px);
+        }
+
+        .reveal-item.fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float-delayed {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes rotate-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- COMPONENT STYLES --- */
+        .img-zoom-bw {
+            transition: transform 1.2s var(--ease-out), filter 0.5s ease;
+            filter: grayscale(100%) contrast(1.1);
+        }
+
+        .group:hover .img-zoom-bw {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s var(--ease-out);
+        }
+
+        .accordion-item.open .accordion-content {
+            max-height: 300px;
+        }
+
+        .particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        /* Illustration Specifics */
+        .iso-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--card-shadow), inset 0 1px 0 var(--glass-highlight);
+        }
+
+        .premium-card {
+            box-shadow: var(--card-shadow);
+            transition: all 0.6s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--text-main) 0%, transparent 60%);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.8s var(--ease-out);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .premium-card:hover {
+            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-8px) scale(1.02);
+            backdrop-filter: blur(20px);
+        }
+
+        .premium-card:hover::after {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        /* Glint Animation */
+        .premium-card .glint {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.05),
+                    transparent);
+            transform: skewX(-25deg);
+            transition: 0.75s;
+        }
+
+        .premium-card:hover .glint {
+            left: 150%;
+        }
+
+        .grid-bg {
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+
+        .perspective-container {
+            perspective: 1000px;
+        }
+
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+        }
+
+        /* Footer Reveal & Layout */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            background-color: var(--bg-color);
+            margin-bottom: 50vh;
+            box-shadow: 0 50px 50px #000;
+            transition: background-color 0.5s ease;
+        }
+
+        .footer-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-bottom: 400px;
+            }
+
+            .footer-fixed {
+                height: 400px;
+            }
+        }
+
+        .theme-icon {
+            transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+        }
+
+        #mobile-menu {
+            transition: transform 0.5s var(--ease-in-out), opacity 0.5s var(--ease-in-out);
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Graph Animations */
+        .path-anim {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s ease-out forwards;
+        }
+
+        .fade-in-delayed {
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        /* Mesh Gradient Orbs */
+        .orb-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.4;
+            filter: blur(100px);
+            transition: opacity 1s ease;
+        }
+
+        body.light-mode .orb-container {
+            opacity: 0.15;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+            animation: move-orb 25s infinite alternate ease-in-out;
+        }
+
+        body.light-mode .orb {
+            mix-blend-mode: soft-light;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--glow-primary), transparent 70%);
+            top: -10%;
+            left: -10%;
+            animation-duration: 30s;
+        }
+
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-secondary), transparent 70%);
+            bottom: -20%;
+            right: -10%;
+            animation-duration: 40s;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--glow-primary), transparent 70%);
+            top: 40%;
+            left: 60%;
+            animation-duration: 35s;
+            animation-delay: -10s;
+            opacity: 0.6;
+        }
+
+        @keyframes move-orb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(10vw, 15vh) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-5vw, 20vh) scale(0.9);
+            }
+
+            100% {
+                transform: translate(5vw, -5vh) scale(1);
+            }
+        }
+
+        /* Floating Logos */
+        .floating-logo {
+            animation: float-logo 5s infinite ease-in-out;
+        }
+
+        @keyframes float-logo {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating-logo:nth-child(2n) {
+            animation-delay: -1s;
+        }
+
+        .floating-logo:nth-child(3n) {
+            animation-delay: -2s;
+        }
+
+        .floating-logo:nth-child(4n) {
+            animation-delay: -3s;
+        }
+
+        /* Logo Theme Handling */
+        .theme-invert {
+            filter: invert(1);
+        }
+
+        body.light-mode .theme-invert {
+            filter: invert(0);
+        }
+
+        /* Generic Form Focus Styles - Keep subtle */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            background-color: var(--input-focus-bg);
+            border-color: var(--border-color);
+        }
+
+        /* Custom Select/Dropdown Styling */
+        select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        /* Style dropdown options for dark mode */
+        select option {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            padding: 12px 16px;
+            border: none;
+        }
+
+        select option:hover,
+        select option:focus,
+        select option:checked {
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+
+        /* Light mode dropdown option styling */
+        body.light-mode select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6a7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+
+        body.light-mode select option {
+            background-color: #bdc5ce;
+            color: #2a3442;
+        }
+
+        body.light-mode select option:hover,
+        body.light-mode select option:focus,
+        body.light-mode select option:checked {
+            background-color: #a8b5c0;
+            color: #1a2430;
+        }
+
+        /* --- TOAST NOTIFICATION --- */
+        #toast-container {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            pointer-events: none;
+        }
+
+        .toast {
+            min-width: 300px;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--card-hover-shadow);
+            transform: translateX(120%);
+            transition: transform 0.6s var(--ease-out), opacity 0.6s var(--ease-out);
+            opacity: 0;
+            pointer-events: auto;
+        }
+
+        .toast.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--text-main);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            #toast-container {
+                top: auto;
+                bottom: 2rem;
+                right: 50%;
+                transform: translateX(50%);
+                width: calc(100% - 2rem);
+            }
+
+            .toast {
+                transform: translateY(120%);
+                width: 100%;
+                min-width: 0;
+            }
+
+            .toast.active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[var(--text-main)] selection:text-[var(--bg-color)]">
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="text-xs font-display font-medium mb-4 tracking-widest uppercase text-[var(--text-muted)]">Umbral
+            Studio</div>
+        <div class="loader-bar">
+            <div class="loader-progress" id="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND ORBS -->
+    <div class="orb-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- UI OVERLAYS -->
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-circle hidden md:block"></div>
+    <div id="progress-bar"
+        class="fixed top-0 left-0 h-[2px] bg-[var(--text-main)] z-[100] w-0 transition-all duration-100 ease-linear">
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav
+        class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-[var(--bg-color)]/80 backdrop-blur-md border-b border-transparent transition-colors duration-300">
+        <a href="#"
+            class="font-display font-semibold text-lg tracking-tight hoverable flex items-center gap-2 relative z-50">
+            <span class="w-2 h-2 bg-[var(--text-main)] rounded-full"></span>
+            UMBRAL
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex gap-8 text-xs font-medium tracking-widest uppercase">
+                <a href="#services" class="hoverable opacity-60 hover:opacity-100 transition-opacity">Services</a>
+                <a href="#work" class="hoverable opacity-60 hover:opacity-100 transition-opacity">Work</a>
+                <a href="#process" class="hoverable opacity-60 hover:opacity-100 transition-opacity">Process</a>
+            </div>
+
+            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode"
+                class="hoverable p-2 rounded-full border border-[var(--border-color)] bg-[var(--glass-bg)] backdrop-blur-sm transition-colors relative overflow-hidden group w-10 h-10 flex items-center justify-center">
+                <iconify-icon icon="solar:sun-2-linear"
+                    class="text-lg theme-icon absolute transition-all duration-500 rotate-0 scale-100 dark-icon"></iconify-icon>
+                <iconify-icon icon="solar:moon-linear"
+                    class="text-lg theme-icon absolute transition-all duration-500 rotate-90 scale-0 opacity-0 light-icon"></iconify-icon>
+            </button>
+
+            <a href="#contact"
+                class="hoverable border border-[var(--border-color)] px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[var(--text-main)] text-[var(--bg-color)] hover:bg-transparent hover:text-[var(--text-main)] transition-colors">
+                Book Call
+            </a>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-4 md:hidden relative z-50">
+            <button id="theme-toggle-mobile" aria-label="Toggle Theme"
+                class="hoverable p-2 rounded-full border border-[var(--border-color)] bg-[var(--glass-bg)] transition-colors w-9 h-9 flex items-center justify-center">
+                <iconify-icon icon="solar:sun-2-linear" class="text-lg theme-icon dark-icon"></iconify-icon>
+            </button>
+
+            <button id="menu-toggle" aria-label="Open Navigation Menu"
+                class="hoverable p-2 flex flex-col gap-1.5 items-end justify-center w-8">
+                <span
+                    class="w-8 h-0.5 bg-[var(--text-main)] block transition-transform duration-300 origin-center"></span>
+                <span class="w-5 h-0.5 bg-[var(--text-main)] block transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-[var(--bg-color)] flex flex-col justify-center items-center gap-8 md:hidden">
+        <a href="#services"
+            class="text-3xl font-display font-medium hover:text-[var(--text-muted)] mobile-link">Services</a>
+        <a href="#work" class="text-3xl font-display font-medium hover:text-[var(--text-muted)] mobile-link">Work</a>
+        <a href="#process"
+            class="text-3xl font-display font-medium hover:text-[var(--text-muted)] mobile-link">Process</a>
+        <a href="#contact"
+            class="text-3xl font-display font-medium hover:text-[var(--text-muted)] mobile-link">Contact</a>
+        <div class="w-10 h-[1px] bg-[var(--border-color)] my-4"></div>
+        <p class="text-[var(--text-muted)] text-sm tracking-widest uppercase">Umbral Studio</p>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="main-content">
+
+        <!-- 1. HERO SECTION -->
+        <header
+            class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--bg-color)] transition-colors duration-500 pt-20 md:pt-0">
+            <!-- Grid Background -->
+            <div class="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
+
+            <div class="section-label hidden sm:block">[ 00. INTRODUCTION ]</div>
+
+            <div
+                class="relative z-10 w-full max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-12 items-center">
+
+                <!-- Left: Content -->
+                <div class="text-left max-w-3xl relative z-20 pt-25 md:pt-20">
+                    <h1
+                        class="font-display text-4xl sm:text-5xl md:text-7xl font-medium tracking-tighter leading-[1] md:leading-[0.95] mb-4 md:mb-6 reveal-item fade-up text-[var(--text-main)]">
+                        Quiet confidence.<br>
+                        <span class="text-[var(--text-muted)]">Loud results.</span>
+                    </h1>
+
+                    <!-- Outcome-focused micro-hook -->
+                    <p class="text-sm md:text-base text-[var(--text-main)] font-medium tracking-wide mb-6 reveal-item fade-up border-l-2 border-[var(--text-main)] pl-4"
+                        style="transition-delay: 0.05s;">
+                        Conversion-driven websites that turn traffic into revenue.
+                    </p>
+
+                    <p class="text-base sm:text-lg md:text-xl text-[var(--text-muted)] leading-relaxed mb-8 md:mb-10 max-w-xl reveal-item fade-up"
+                        style="transition-delay: 0.1s;">
+                        We build premium, high-performance websites that turn visitors into partners.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 reveal-item fade-up" style="transition-delay: 0.2s;">
+                        <a href="#contact"
+                            class="hoverable px-8 py-4 rounded-full bg-[var(--text-main)] text-[var(--bg-color)] font-semibold text-sm tracking-wide uppercase hover:scale-105 transition-transform duration-300 text-center">
+                            Book Strategy Call
+                        </a>
+                        <a href="#services"
+                            class="hoverable px-8 py-4 rounded-full border border-[var(--border-color)] text-[var(--text-main)] font-semibold text-sm tracking-wide uppercase hover:bg-[var(--glass-bg)] transition-colors text-center">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: High-Fidelity System Architecture Visual -->
+                <div class="relative w-full h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center reveal-item fade-up select-none pointer-events-none perspective-container mt-8 lg:mt-0"
+                    style="transition-delay: 0.3s;">
+
+                    <!-- Atmospheric Glows -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[var(--glow-primary)] rounded-full blur-[100px] opacity-20 animate-pulse">
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-[var(--glow-secondary)] rounded-full blur-[80px] opacity-20"
+                        style="animation-delay: 1s"></div>
+
+                    <!-- 3D Plane Tilted -->
+                    <div class="relative w-full h-full transform preserve-3d"
+                        style="transform: rotateX(10deg) rotateY(-5deg) scale(0.9);">
+
+                        <!-- Connecting Lines (Behind) -->
+                        <svg class="absolute inset-0 w-full h-full z-0 opacity-40 overflow-visible"
+                            viewBox="0 0 400 400">
+                            <!-- Dashed orbit ring -->
+                            <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" stroke-width="0.5"
+                                stroke-dasharray="4 4"
+                                class="text-[var(--text-muted)] opacity-20 animate-[rotate-slow_60s_linear_infinite]">
+                            </circle>
+                            <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" stroke-width="0.5"
+                                stroke-dasharray="2 2" class="text-[var(--text-muted)] opacity-30"></circle>
+
+                            <!-- Nodes Connections -->
+                            <line x1="200" y1="200" x2="80" y2="120" stroke="url(#lineGradient)" stroke-width="1"
+                                class="text-[var(--text-muted)]"></line>
+                            <line x1="200" y1="200" x2="320" y2="100" stroke="url(#lineGradient)" stroke-width="1"
+                                class="text-[var(--text-muted)]"></line>
+                            <line x1="200" y1="200" x2="300" y2="300" stroke="url(#lineGradient)" stroke-width="1"
+                                class="text-[var(--text-muted)]"></line>
+                            <line x1="200" y1="200" x2="100" y2="280" stroke="url(#lineGradient)" stroke-width="1"
+                                class="text-[var(--text-muted)]"></line>
+
+                            <defs>
+                                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="var(--text-muted)" stop-opacity="0"></stop>
+                                    <stop offset="50%" stop-color="var(--text-main)" stop-opacity="0.5"></stop>
+                                    <stop offset="100%" stop-color="var(--text-muted)" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <!-- Center Hub (Main) -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 iso-card rounded-2xl flex flex-col items-center justify-center z-20 animate-[float_6s_ease-in-out_infinite]">
+                            <div
+                                class="relative w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-[var(--border-color)] to-transparent border border-[var(--border-color)] flex items-center justify-center mb-3 overflow-hidden shadow-inner">
+                                <div class="absolute inset-0 bg-[var(--text-main)] opacity-5"></div>
+                                <iconify-icon icon="solar:layers-minimalistic-linear"
+                                    class="text-3xl md:text-4xl text-[var(--text-main)]"></iconify-icon>
+                                <!-- Scan effect -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--text-main)] to-transparent opacity-10 h-[20%] animate-[scanline_3s_linear_infinite]">
+                                </div>
+                            </div>
+                            <div class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-medium">Core
+                                System</div>
+                            <div class="flex gap-1 mt-2">
+                                <div class="w-1 h-1 rounded-full bg-metric animate-pulse"></div>
+                                <div class="w-1 h-1 rounded-full bg-[var(--text-muted)] opacity-50"></div>
+                                <div class="w-1 h-1 rounded-full bg-[var(--text-muted)] opacity-50"></div>
+                            </div>
+                        </div>
+
+                        <!-- Satellite Node 1: Strategy (Top Left) -->
+                        <div
+                            class="absolute top-[20%] left-[10%] w-24 md:w-28 p-2 iso-card rounded-lg flex flex-col items-center gap-2 z-10 animate-[float-delayed_7s_ease-in-out_infinite]">
+                            <div
+                                class="w-8 h-8 rounded-full border border-[var(--border-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <iconify-icon icon="solar:chart-square-linear"
+                                    class="text-[var(--text-muted)]"></iconify-icon>
+                            </div>
+                            <div class="h-1 w-12 bg-[var(--border-color)] rounded-full overflow-hidden">
+                                <div
+                                    class="h-full w-full bg-[var(--text-main)] origin-left animate-[pulse-glow_2s_infinite]">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Satellite Node 2: Code (Bottom Right) -->
+                        <div
+                            class="absolute bottom-[20%] right-[15%] w-32 md:w-36 p-3 iso-card rounded-lg flex items-center gap-3 z-30 animate-[float_8s_ease-in-out_infinite]">
+                            <div class="text-[10px] font-mono text-[var(--text-muted)] leading-tight">
+                                <span class="text-blue-400">const</span> init = ()<br>
+                                <span class="text-purple-400">return</span> true;
+                            </div>
+                            <div class="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                        </div>
+
+                        <!-- Satellite Node 3: Design (Top Right) -->
+                        <div
+                            class="absolute top-[15%] right-[10%] w-10 h-10 md:w-12 md:h-12 rounded-full iso-card flex items-center justify-center z-10 animate-[float-delayed_5s_ease-in-out_infinite]">
+                            <iconify-icon icon="solar:palette-linear" class="text-[var(--text-main)]"></iconify-icon>
+                        </div>
+
+                        <!-- Satellite Node 4: Database (Bottom Left) -->
+                        <div
+                            class="absolute bottom-[25%] left-[20%] px-3 py-1.5 iso-card rounded-full flex items-center gap-2 z-10 animate-[float_6s_ease-in-out_infinite]">
+                            <div class="w-1.5 h-1.5 bg-metric rounded-full animate-pulse"></div>
+                            <span class="text-[9px] uppercase tracking-wider text-[var(--text-muted)]">Active</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Trust Indicators -->
+            <div
+                class="absolute bottom-4 md:bottom-8 left-0 w-full px-6 md:px-12 flex justify-between items-end opacity-50 text-[10px] md:text-xs tracking-widest uppercase text-[var(--text-muted)] mt-8">
+                <div class="w-full text-center md:text-left">Based in San Fransico.</div>
+                <div class="hidden md:block">Design • Strategy • Development</div>
+            </div>
+        </header>
+
+        <!-- TECH STACK MARQUEE (Social Proof) -->
+        <section class="py-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] overflow-hidden relative">
+            <div class="flex flex-col items-center gap-8 px-6">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--text-muted)] opacity-50">Precision Tools
+                    for Premium Results</p>
+                <div
+                    class="flex flex-wrap justify-center items-center gap-8 md:gap-20 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 select-none pb-2">
+                    <iconify-icon icon="logos:figma" class="text-2xl md:text-3xl floating-logo"
+                        aria-label="Figma"></iconify-icon>
+                    <iconify-icon icon="logos:pnpm" class="text-2xl md:text-3xl floating-logo"
+                        aria-label="PNPM"></iconify-icon>
+                    <iconify-icon icon="logos:webflow" class="text-2xl md:text-3xl floating-logo"
+                        aria-label="Webflow"></iconify-icon>
+                    <iconify-icon icon="logos:react" class="text-2xl md:text-3xl floating-logo"
+                        aria-label="React"></iconify-icon>
+                    <iconify-icon icon="logos:nextjs-icon" class="text-2xl md:text-3xl theme-invert floating-logo"
+                        aria-label="Next.js"></iconify-icon>
+                    <iconify-icon icon="logos:tailwindcss-icon" class="text-2xl md:text-3xl floating-logo"
+                        aria-label="Tailwind CSS"></iconify-icon>
+                    <iconify-icon icon="logos:framer" class="text-2xl md:text-3xl theme-invert floating-logo"
+                        aria-label="Framer"></iconify-icon>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TRUST & CREDIBILITY -->
+        <section id="studio"
+            class="py-16 md:py-24 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 01. THE STUDIO ]</div>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-24 items-center">
+                <div class="reveal-item fade-up order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl font-display font-medium leading-tight mb-6">
+                        The solo advantage.
+                    </h2>
+                    <div class="space-y-6 text-[var(--text-muted)] text-base md:text-lg leading-relaxed">
+                        <p>
+                            Most agencies burden you with account managers, bloated timelines, and overhead costs.
+                            Umbral Studio is different.
+                        </p>
+                        <p>
+                            You work directly with the founder. No middlemen, no "lost in translation." Just clear
+                            strategy and precision execution from day one.
+                        </p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mt-8">
+                            <li
+                                class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Direct
+                                Communication
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Faster
+                                Turnarounds
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon> Strategy
+                                First
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm border border-[var(--border-color)] p-3 rounded-lg">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-lg"></iconify-icon>
+                                Conversion Focused
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="order-1 md:order-2 relative aspect-video md:aspect-[4/5] rounded-xl overflow-hidden reveal-item fade-up"
+                    style="transition-delay: 0.2s">
+                    <img src="img/navigator (1).jpeg" class="absolute inset-0 w-full h-full object-cover img-zoom-bw"
+                        alt="Precision Design Strategy" loading="lazy" decoding="async">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] to-transparent opacity-80">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SERVICES SECTION -->
+        <section id="services"
+            class="py-16 md:py-32 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 02. SERVICES ]</div>
+
+            <div class="max-w-7xl mx-auto mb-12 md:mb-16">
+                <h2
+                    class="text-3xl md:text-5xl font-display font-medium tracking-tight mb-4 md:mb-6 reveal-item fade-up">
+                    Crafted for Growth</h2>
+                <p class="text-[var(--text-muted)] text-base md:text-lg max-w-2xl reveal-item fade-up">We don't just
+                    make things look good. We build systems that scale your business.</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Service 1 -->
+                <div
+                    class="group hoverable premium-card relative overflow-hidden rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] p-6 md:p-8 h-80 md:h-96 flex flex-col justify-between">
+                    <div class="glint"></div>
+                    <div class="z-10 relative">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
+                            <iconify-icon icon="solar:laptop-minimalistic-linear" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Web Design &amp; Build</h3>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
+                            Custom, responsive websites built on modern stacks. SEO-optimized and pixel-perfect
+                            implementation.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
+                            <iconify-icon icon="solar:graph-up-linear" class="text-metric"></iconify-icon>
+                            <span>Avg. 2-4 week delivery</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                    </div>
+                    <!-- Hover BG -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-[var(--border-color)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="group hoverable premium-card relative overflow-hidden rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] p-6 md:p-8 h-80 md:h-96 flex flex-col justify-between">
+                    <div class="glint"></div>
+                    <div class="z-10 relative">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
+                            <iconify-icon icon="solar:rocket-2-linear" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Landing Pages</h3>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
+                            High-conversion single pages designed for specific campaigns. Focused on storytelling and
+                            action.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
+                            <iconify-icon icon="solar:graph-up-linear" class="text-metric"></iconify-icon>
+                            <span>Avg. +18–35% conversion lift</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-[var(--border-color)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="group hoverable premium-card relative overflow-hidden rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] p-6 md:p-8 h-80 md:h-96 flex flex-col justify-between">
+                    <div class="glint"></div>
+                    <div class="z-10 relative">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--border-color)] flex items-center justify-center mb-6 text-xl md:text-2xl">
+                            <iconify-icon icon="solar:tuning-square-2-linear" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-display font-medium mb-2">Optimization</h3>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
+                            Revamping existing sites for speed, accessibility, and higher conversion rates. Data-driven
+                            refinement.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-[var(--text-main)] font-medium">
+                            <iconify-icon icon="solar:stopwatch-linear" class="text-metric"></iconify-icon>
+                            <span>Measurable gains within 14 days</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute right-6 bottom-6 md:right-8 md:bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-3xl"></iconify-icon>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-[var(--border-color)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION A: SELECTED WORK & RESULTS -->
+        <section id="work"
+            class="py-16 md:py-32 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 03. CASE STUDIES ]</div>
+
+            <div class="max-w-7xl mx-auto mb-12 md:mb-16">
+                <h2
+                    class="text-3xl md:text-4xl font-display font-medium tracking-tight mb-4 md:mb-6 reveal-item fade-up">
+                    Selected Work &amp; Results</h2>
+                <p class="text-[var(--text-muted)] text-base md:text-lg max-w-2xl reveal-item fade-up">Strategic
+                    interventions that solved real business problems.</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Case 1: SaaS / Fintech -->
+                <div class="group reveal-item fade-up h-full flex flex-col">
+                    <div
+                        class="premium-card flex-1 rounded-2xl bg-[var(--glass-bg)] border border-[var(--border-color)] relative overflow-hidden flex flex-col">
+                        <div class="glint"></div>
+
+                        <!-- Visual Mockup -->
+                        <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
+                            <img src="img/maestro.png" alt="FinFlow SaaS Dashboard"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                loading="lazy" decoding="async">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="mb-4 flex justify-between items-start">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
+                                    <iconify-icon icon="solar:chart-square-bold-duotone"></iconify-icon>
+                                </div>
+                                <span
+                                    class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">SaaS
+                                    / Fintech</span>
+                            </div>
+
+                            <h3 class="text-xl font-display font-medium mb-3 text-[var(--text-main)]">From Complexity to
+                                Clarity</h3>
+
+                            <div class="pt-4 border-t border-[var(--border-color)]">
+                                <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
+                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <span>+42% qualified demo requests</span>
+                                </div>
+                                <p
+                                    class="text-sm text-[var(--text-muted)] leading-relaxed group-hover:text-[var(--text-main)] transition-colors duration-500">
+                                    Clarified the product’s value for decision-makers, reducing friction in
+                                    sales and eliminating unnecessary demo requests.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Subtle Background Detail -->
+                        <div
+                            class="absolute -right-6 -bottom-6 w-32 h-32 bg-[var(--text-main)] opacity-[0.01] rounded-full blur-3xl group-hover:opacity-[0.05] transition-opacity">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Architecture -->
+                <div class="group reveal-item fade-up h-full flex flex-col" style="transition-delay: 0.1s">
+                    <div
+                        class="premium-card flex-1 rounded-2xl bg-[var(--glass-bg)] border border-[var(--border-color)] relative overflow-hidden flex flex-col">
+                        <div class="glint"></div>
+
+                        <!-- Visual Mockup -->
+                        <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
+                            <img src="img/portfolio.png" alt="Architecture Firm Portfolio"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                loading="lazy" decoding="async">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="mb-4 flex justify-between items-start">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
+                                    <iconify-icon icon="solar:buildings-2-bold-duotone"></iconify-icon>
+                                </div>
+                                <span
+                                    class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">Architecture</span>
+                            </div>
+
+                            <h3 class="text-xl font-display font-medium mb-3 text-[var(--text-main)]">Portfolio Overhaul
+                            </h3>
+
+                            <div class="pt-4 border-t border-[var(--border-color)]">
+                                <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
+                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <span>3x increase in project inquiries</span>
+                                </div>
+                                <p
+                                    class="text-sm text-[var(--text-muted)] leading-relaxed group-hover:text-[var(--text-main)] transition-colors duration-500">
+                                    A refined, image-led digital presence that aligned with the firm’s premium work and
+                                    attracted higher-value projects.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute -right-6 -bottom-6 w-32 h-32 bg-[var(--text-main)] opacity-[0.01] rounded-full blur-3xl group-hover:opacity-[0.05] transition-opacity">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Health Tech -->
+                <div class="group reveal-item fade-up h-full flex flex-col" style="transition-delay: 0.2s">
+                    <div
+                        class="premium-card flex-1 rounded-2xl bg-[var(--glass-bg)] border border-[var(--border-color)] relative overflow-hidden flex flex-col">
+                        <div class="glint"></div>
+
+                        <!-- Visual Mockup -->
+                        <div class="relative h-48 overflow-hidden bg-[var(--border-color)]">
+                            <img src="img/health.png" alt="Health Tech User Interface"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                loading="lazy" decoding="async">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)] to-transparent opacity-60">
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="mb-4 flex justify-between items-start">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-[var(--border-color)] flex items-center justify-center text-xl text-[var(--text-main)] group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] transition-all duration-500">
+                                    <iconify-icon icon="solar:health-bold-duotone"></iconify-icon>
+                                </div>
+                                <span
+                                    class="text-[9px] font-semibold tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border-color)] px-3 py-1 rounded-full">Health
+                                    Tech</span>
+                            </div>
+
+                            <h3 class="text-xl font-display font-medium mb-3 text-[var(--text-main)]">Patient-First UX
+                            </h3>
+
+                            <div class="pt-4 border-t border-[var(--border-color)]">
+                                <div class="flex items-center gap-2 text-xs text-metric font-semibold mb-2">
+                                    <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                                    <span>-60% booking drop-off rate</span>
+                                </div>
+                                <p
+                                    class="text-sm text-[var(--text-muted)] leading-relaxed group-hover:text-[var(--text-main)] transition-colors duration-500">
+                                    A simplified booking flow that reduced drop-offs and increased completed
+                                    appointments, supported by patient feedback.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute -right-6 -bottom-6 w-32 h-32 bg-[var(--text-main)] opacity-[0.01] rounded-full blur-3xl group-hover:opacity-[0.05] transition-opacity">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. PROCESS SECTION -->
+        <section id="process"
+            class="py-16 md:py-32 bg-[var(--bg-color)] flex flex-col items-center justify-center border-t border-[var(--border-color)] relative overflow-hidden transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 04. HOW IT WORKS ]</div>
+
+            <div class="max-w-4xl mx-auto text-center mb-16 px-6">
+                <h2 class="text-3xl md:text-4xl font-display font-medium mb-4 md:mb-6 reveal-item fade-up">Simplicity by
+                    design.</h2>
+                <p class="text-[var(--text-muted)] reveal-item fade-up">No complex onboarding. We keep it streamlined.
+                </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row flex-wrap justify-center gap-12 md:gap-16 px-6">
+
+                <!-- Step 1 -->
+                <div class="text-center group hoverable reveal-item fade-up" style="transition-delay: 0s;">
+                    <div
+                        class="w-32 h-32 md:w-48 md:h-48 rounded-full border border-[var(--border-color)] flex items-center justify-center bg-[var(--glass-bg)] backdrop-blur-sm group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] group-hover:scale-105 transition-all duration-300 mx-auto mb-6">
+                        <span class="text-4xl font-display">01</span>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Discovery</h3>
+                    <p class="text-xs text-[var(--text-muted)] uppercase tracking-wider">Strategy &amp; Goals</p>
+                </div>
+
+                <!-- Step 2 Arrow -->
+                <div class="hidden md:flex items-center justify-center pt-16 opacity-30">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                </div>
+                <div class="md:hidden flex items-center justify-center opacity-30 rotate-90">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center group hoverable reveal-item fade-up" style="transition-delay: 0.1s;">
+                    <div
+                        class="w-32 h-32 md:w-48 md:h-48 rounded-full border border-[var(--border-color)] flex items-center justify-center bg-[var(--glass-bg)] backdrop-blur-sm group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] group-hover:scale-105 transition-all duration-300 mx-auto mb-6">
+                        <span class="text-4xl font-display">02</span>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Build</h3>
+                    <p class="text-xs text-[var(--text-muted)] uppercase tracking-wider">Design &amp; Develop</p>
+                </div>
+
+                <!-- Step 3 Arrow -->
+                <div class="hidden md:flex items-center justify-center pt-16 opacity-30">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                </div>
+                <div class="md:hidden flex items-center justify-center opacity-30 rotate-90">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-3xl"></iconify-icon>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center group hoverable reveal-item fade-up" style="transition-delay: 0.2s;">
+                    <div
+                        class="w-32 h-32 md:w-48 md:h-48 rounded-full border border-[var(--border-color)] flex items-center justify-center bg-[var(--glass-bg)] backdrop-blur-sm group-hover:bg-[var(--text-main)] group-hover:text-[var(--bg-color)] group-hover:scale-105 transition-all duration-300 mx-auto mb-6">
+                        <span class="text-4xl font-display">03</span>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Launch</h3>
+                    <p class="text-xs text-[var(--text-muted)] uppercase tracking-wider">Refine &amp; Go Live</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION B & C: RESULTS & VISUAL -->
+        <section
+            class="py-16 md:py-24 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500 overflow-hidden">
+            <div class="section-label hidden sm:block">[ 05. RESULTS ]</div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+                <!-- Content -->
+                <div class="order-2 md:order-1 reveal-item fade-up">
+                    <h2 class="text-3xl md:text-4xl font-display font-medium mb-6 md:mb-8">Metrics that matter.</h2>
+                    <p class="text-[var(--text-muted)] text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
+                        We move beyond vanity metrics to focus on performance and usability improvements that drive
+                        actual business value.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+                        <!-- Metric 1 -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-[var(--text-main)]">
+                                <iconify-icon icon="solar:graph-up-linear" class="text-2xl"></iconify-icon>
+                                <span class="font-medium">Engagement</span>
+                            </div>
+                            <p class="text-sm text-[var(--text-muted)]">Increased time-on-site through clearer content
+                                hierarchy.</p>
+                        </div>
+
+                        <!-- Metric 2 -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-[var(--text-main)]">
+                                <iconify-icon icon="solar:stopwatch-linear" class="text-2xl"></iconify-icon>
+                                <span class="font-medium">Load Times</span>
+                            </div>
+                            <p class="text-sm text-[var(--text-muted)]">Lean development for sub-second page loads.</p>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-[var(--text-main)]">
+                                <iconify-icon icon="solar:mouse-circle-linear" class="text-2xl"></iconify-icon>
+                                <span class="font-medium">Conversion</span>
+                            </div>
+                            <p class="text-sm text-[var(--text-muted)]">Frictionless paths to contact and purchase.</p>
+                        </div>
+
+                        <!-- Metric 4 -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-[var(--text-main)]">
+                                <iconify-icon icon="solar:accessibility-linear" class="text-2xl"></iconify-icon>
+                                <span class="font-medium">Accessibility</span>
+                            </div>
+                            <p class="text-sm text-[var(--text-muted)]">Inclusive design that reaches a wider audience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Added outcome-focused statement -->
+                    <div class="mt-8 pt-6 border-t border-[var(--border-color)]">
+                        <p class="text-sm text-[var(--text-main)] font-medium">
+                            <iconify-icon icon="solar:verified-check-linear" class="text-metric mr-2"></iconify-icon>
+                            Every decision is tied to a measurable business outcome.
+                        </p>
+                    </div>
+
+                    <div class="mt-4 text-xs text-[var(--text-muted)] italic opacity-60">
+                        * Results vary by project scope and starting baseline.
+                    </div>
+                </div>
+
+                <!-- Abstract Visual: High Fidelity Dashboard Mockup -->
+                <div
+                    class="order-1 md:order-2 relative h-[360px] md:h-[460px] flex items-center justify-center reveal-item fade-up w-full">
+
+                    <!-- Background Grid/Glow -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-[var(--glow-primary)] to-transparent opacity-20 rounded-full blur-[90px]">
+                    </div>
+
+                    <!-- Back Layer: Abstract Wireframe -->
+                    <div class="absolute w-[90%] h-[300px] border border-[var(--border-color)] opacity-20 rounded-xl top-0 transform translate-y-4 scale-95"
+                        style="background-image: radial-gradient(var(--text-muted) 1px, transparent 1px); background-size: 10px 10px;">
+                    </div>
+
+                    <!-- Main Dashboard Card -->
+                    <div
+                        class="relative w-full max-w-md iso-card rounded-xl overflow-hidden z-10 flex flex-col shadow-2xl">
+
+                        <!-- Header Bar -->
+                        <div
+                            class="h-10 border-b border-[var(--border-color)] bg-[var(--glass-highlight)] flex items-center px-4 justify-between">
+                            <div class="flex gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[var(--border-color)]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-[var(--border-color)] opacity-50"></div>
+                            </div>
+                            <div class="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">Analytics View
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Body -->
+                        <div class="p-6 flex flex-col h-full bg-[var(--bg-color)]/50">
+
+                            <!-- Top Stats Row -->
+                            <div class="flex justify-between items-start mb-8">
+                                <div>
+                                    <div class="text-[10px] text-[var(--text-muted)] uppercase tracking-wide mb-1">Total
+                                        Visitors</div>
+                                    <div class="text-3xl font-display font-medium">128.4k</div>
+                                    <div class="flex items-center gap-1 text-[10px] text-metric mt-1">
+                                        <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon> +12.5%
+                                    </div>
+                                </div>
+
+                                <!-- Speed Dial Graphic -->
+                                <div class="relative w-12 h-12 flex items-center justify-center">
+                                    <svg class="w-full h-full transform -rotate-90">
+                                        <circle cx="24" cy="24" r="20" stroke="var(--border-color)" stroke-width="3"
+                                            fill="none"></circle>
+                                        <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3"
+                                            fill="none" class="text-metric" stroke-dasharray="125"
+                                            stroke-dashoffset="20"></circle>
+                                    </svg>
+                                    <span class="absolute text-[8px] font-bold">98</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Graph Area -->
+                            <div class="relative h-40 w-full mt-auto">
+                                <!-- Grid Lines -->
+                                <div class="absolute inset-0 flex flex-col justify-between opacity-10">
+                                    <div class="w-full h-px bg-[var(--text-muted)]"></div>
+                                    <div class="w-full h-px bg-[var(--text-muted)]"></div>
+                                    <div class="w-full h-px bg-[var(--text-muted)]"></div>
+                                    <div class="w-full h-px bg-[var(--text-muted)]"></div>
+                                </div>
+
+                                <!-- SVG Smooth Graph -->
+                                <svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="graphGradient" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="var(--text-main)" stop-opacity="0.2"></stop>
+                                            <stop offset="100%" stop-color="var(--text-main)" stop-opacity="0"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Fill -->
+                                    <path
+                                        d="M0,160 C50,140 100,150 150,100 C200,50 250,80 300,40 C350,10 400,30 450,10 L450,160 L0,160 Z"
+                                        fill="url(#graphGradient)" class="fade-in-delayed"></path>
+                                    <!-- Stroke Line -->
+                                    <path d="M0,160 C50,140 100,150 150,100 C200,50 250,80 300,40 C350,10 400,30 450,10"
+                                        fill="none" stroke="var(--text-main)" stroke-width="2" class="path-anim"></path>
+
+                                    <!-- Data Points -->
+                                    <circle cx="150" cy="100" r="3" fill="var(--bg-color)" stroke="var(--text-main)"
+                                        stroke-width="2" class="fade-in-delayed" style="animation-delay: 1.5s"></circle>
+                                    <circle cx="300" cy="40" r="3" fill="var(--bg-color)" stroke="var(--text-main)"
+                                        stroke-width="2" class="fade-in-delayed" style="animation-delay: 1.8s"></circle>
+                                </svg>
+
+                                <!-- Floating Tooltip -->
+                                <div
+                                    class="absolute top-[10%] left-[65%] bg-[var(--text-main)] text-[var(--bg-color)] px-2 py-1 rounded text-[10px] font-bold shadow-lg transform -translate-x-1/2 -translate-y-full animate-[float_4s_ease-in-out_infinite]">
+                                    Peak Traffic
+                                    <div
+                                        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-[var(--text-main)]">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge: Status -->
+                    <div
+                        class="absolute -right-4 bottom-10 z-20 iso-card px-3 py-1.5 rounded-full flex items-center gap-2 animate-[float-delayed_6s_ease-in-out_infinite]">
+                        <div class="w-1.5 h-1.5 bg-metric rounded-full animate-pulse"></div>
+                        <span class="text-[10px] uppercase font-mono tracking-wider">Server Healthy</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION D & E: TESTIMONIALS -->
+        <section
+            class="py-16 md:py-24 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 06. FEEDBACK ]</div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 md:gap-16">
+
+                <!-- Left: Sticky Visual/Header -->
+                <div class="relative md:sticky md:top-32 h-fit reveal-item fade-up">
+                    <h2 class="text-2xl md:text-4xl font-display font-medium mb-6 md:mb-8">Trusted by founders.</h2>
+                    <p class="text-[var(--text-muted)] text-base md:text-lg mb-8">
+                        We build long-term partnerships based on reliability and technical excellence.
+                    </p>
+
+                    <!-- Trust Visual -->
+                    <div
+                        class="hidden md:flex relative w-full aspect-video md:aspect-square items-center justify-center opacity-80 scale-90 md:scale-100 origin-left">
+                        <!-- Card 1 -->
+                        <div
+                            class="absolute w-48 h-32 bg-[var(--glass-bg)] border border-[var(--border-color)] rounded-lg transform -rotate-6 -translate-x-4 -translate-y-4 z-0">
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="absolute w-48 h-32 bg-[var(--bg-color)] border border-[var(--border-color)] rounded-lg transform rotate-0 z-10 flex items-center justify-center shadow-2xl">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[var(--text-main)] text-[var(--bg-color)] flex items-center justify-center">
+                                <iconify-icon icon="solar:check-read-linear" class="text-2xl"></iconify-icon>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="absolute w-48 h-32 bg-[var(--glass-bg)] border border-[var(--border-color)] rounded-lg transform rotate-6 translate-x-4 translate-y-4 z-0 opacity-50">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Reviews List -->
+                <div class="space-y-6">
+
+                    <!-- Review 1 -->
+                    <div
+                        class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up">
+                        <div class="mb-4 text-[var(--text-main)] text-xl">
+                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                        </div>
+                        <p class="text-lg leading-relaxed mb-6 font-display">
+                            "Umbral didn't just build a website; they helped us clarify our entire product strategy. The
+                            code is clean, the design is sharp, and the results speak for themselves."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <img src="img/faces (2).jpg" alt="Alex V."
+                                class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
+                                loading="lazy" decoding="async">
+                            <div>
+                                <div class="text-sm font-semibold">Alex V.</div>
+                                <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">Founder, FinFlow ·
+                                    Series A SaaS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up"
+                        style="transition-delay: 0.1s">
+                        <div class="mb-4 text-[var(--text-main)] text-xl">
+                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                        </div>
+                        <p class="text-lg leading-relaxed mb-6 font-display">
+                            "Finally, a designer who understands business objectives. No fluff, just high-quality
+                            execution. The project was delivered ahead of schedule."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <img src=" img/faces (1).jpg" alt="Sarah J."
+                                class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
+                                loading="lazy" decoding="async">
+                            <div>
+                                <div class="text-sm font-semibold">Sarah J.</div>
+                                <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">Product Lead,
+                                    Aether · Seed-stage Startup</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="p-6 md:p-8 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] reveal-item fade-up"
+                        style="transition-delay: 0.2s">
+                        <div class="mb-4 text-[var(--text-main)] text-xl">
+                            <iconify-icon icon="solar:quote-up-square-linear"></iconify-icon>
+                        </div>
+                        <p class="text-lg leading-relaxed mb-6 font-display">
+                            "The easiest collaboration I've had in years. The transition from Figma to live site was
+                            pixel-perfect. Highly recommended for technical founders."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <img src="img/faces (3).jpg" alt="David K."
+                                class="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
+                                loading="lazy" decoding="async">
+                            <div>
+                                <div class="text-sm font-semibold">David K.</div>
+                                <div class="text-xs text-[var(--text-muted)] uppercase tracking-wide">CTO, Nexus Systems
+                                    · B2B Enterprise
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION F & G: LEAD MAGNET / AUDIT -->
+        <section
+            class="py-16 md:py-24 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 07. OPPORTUNITY ]</div>
+
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="relative rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--glass-bg)]">
+                    <!-- Scanline Background for Container -->
+                    <div class="absolute inset-0 opacity-10 pointer-events-none"
+                        style="background-image: linear-gradient(0deg, transparent 24%, var(--border-color) 25%, var(--border-color) 26%, transparent 27%, transparent 74%, var(--border-color) 75%, var(--border-color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--border-color) 25%, var(--border-color) 26%, transparent 27%, transparent 74%, var(--border-color) 75%, var(--border-color) 76%, transparent 77%, transparent); background-size: 50px 50px;">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-8 md:p-16 relative z-10 items-center">
+
+                        <!-- Left: Copy & CTA -->
+                        <div class="reveal-item fade-up text-center md:text-left">
+                            <h2 class="text-3xl md:text-4xl font-display font-medium mb-4">Complimentary Strategic Audit
+                            </h2>
+                            <p class="text-[var(--text-muted)] mb-8 max-w-md mx-auto md:mx-0">
+                                Unsure where your current site is leaking revenue? I'll review your digital presence and
+                                record a personalized video breakdown.
+                            </p>
+
+                            <ul class="space-y-3 mb-8 text-sm text-left inline-block">
+                                <li class="flex items-center gap-3">
+                                    <iconify-icon icon="solar:check-circle-linear"
+                                        class="text-[var(--text-main)]"></iconify-icon>
+                                    <span>UX &amp; Friction Analysis</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <iconify-icon icon="solar:check-circle-linear"
+                                        class="text-[var(--text-main)]"></iconify-icon>
+                                    <span>Visual Hierarchy Review</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <iconify-icon icon="solar:check-circle-linear"
+                                        class="text-[var(--text-main)]"></iconify-icon>
+                                    <span>Actionable Next Steps</span>
+                                </li>
+                            </ul>
+
+                            <div class="block">
+                                <a href="#contact"
+                                    class="inline-flex items-center gap-2 hoverable px-8 py-3 rounded-full bg-[var(--text-main)] text-[var(--bg-color)] font-semibold text-sm tracking-wide uppercase hover:scale-105 transition-transform duration-300">
+                                    <span>Request Free Audit</span>
+                                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                                </a>
+                            </div>
+                            <p class="mt-4 text-xs text-[var(--text-muted)] opacity-60">No sales pitch. No obligation.
+                                Limited to 2 spots per week.</p>
+                        </div>
+
+                        <!-- Right: Abstract Audit Visual -->
+                        <div
+                            class="relative h-48 md:h-64 w-full flex items-center justify-center reveal-item fade-up select-none pointer-events-none">
+                            <!-- Browser Window -->
+                            <div
+                                class="w-[90%] md:w-[80%] aspect-[4/3] bg-[var(--bg-color)] border border-[var(--border-color)] rounded-lg shadow-2xl flex flex-col overflow-hidden">
+                                <!-- Browser Header -->
+                                <div
+                                    class="h-6 border-b border-[var(--border-color)] bg-[var(--glass-bg)] flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                                    <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                                    <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                                </div>
+                                <!-- Content Mockup -->
+                                <div class="p-4 space-y-3 relative">
+                                    <div class="w-full h-8 bg-[var(--border-color)] rounded-sm opacity-30"></div>
+                                    <div class="flex gap-2">
+                                        <div class="w-1/3 h-20 bg-[var(--border-color)] rounded-sm opacity-20"></div>
+                                        <div class="w-2/3 space-y-2">
+                                            <div class="w-full h-2 bg-[var(--border-color)] rounded-sm opacity-20">
+                                            </div>
+                                            <div class="w-full h-2 bg-[var(--border-color)] rounded-sm opacity-20">
+                                            </div>
+                                            <div class="w-3/4 h-2 bg-[var(--border-color)] rounded-sm opacity-20"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Scan Overlay -->
+                                    <div
+                                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-[var(--text-main)]/10 to-transparent animate-[scanline_2s_linear_infinite]">
+                                    </div>
+                                    <!-- Hotspot Marker -->
+                                    <div
+                                        class="absolute top-12 right-12 w-6 h-6 border-2 border-[var(--text-main)] rounded-full animate-ping opacity-50">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. OBJECTION HANDLING (FAQ) -->
+        <section id="faq"
+            class="py-16 md:py-32 px-6 md:px-12 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative transition-colors duration-500">
+            <div class="section-label hidden sm:block">[ 08. COMMON QUESTIONS ]</div>
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-12 max-w-7xl mx-auto">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-3xl md:text-4xl font-display font-medium text-[var(--text-main)] mb-6">Why Umbral?
+                    </h3>
+                    <p class="text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                        We understand that hiring a designer is an investment. Here is why founders trust us with their
+                        digital presence.
+                    </p>
+                    <a href="#contact"
+                        class="inline-block mt-8 text-sm uppercase tracking-widest border-b border-[var(--text-main)] pb-1 hover:opacity-70 transition-opacity">Let's
+                        discuss your project</a>
+                </div>
+
+                <div class="space-y-0">
+                    <!-- Item 1 -->
+                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
+                        <div class="py-4 md:py-6 flex justify-between items-center">
+                            <h4 class="text-lg md:text-xl font-medium pr-4">Perfect for early-stage startups?</h4>
+                            <iconify-icon icon="solar:add-linear"
+                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                                Absolutely. We specialize in helping early-stage founders get off the ground with
+                                professional, scalable websites that don't break the bank but look like a million bucks.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
+                        <div class="py-4 md:py-6 flex justify-between items-center">
+                            <h4 class="text-lg md:text-xl font-medium pr-4">How flexible is the pricing?</h4>
+                            <iconify-icon icon="solar:add-linear"
+                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                                We offer flat-rate project fees so there are no surprises. We can structure payments in
+                                milestones to aid your cash flow.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
+                        <div class="py-4 md:py-6 flex justify-between items-center">
+                            <h4 class="text-lg md:text-xl font-medium pr-4">What is the typical timeline?</h4>
+                            <iconify-icon icon="solar:add-linear"
+                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                                Most websites take between 2-4 weeks from strategy to launch. We move fast without
+                                sacrificing quality.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="accordion-item group hoverable cursor-pointer" onclick="this.classList.toggle('open')">
+                        <div class="py-4 md:py-6 flex justify-between items-center">
+                            <h4 class="text-lg md:text-xl font-medium pr-4">Do I own the code?</h4>
+                            <iconify-icon icon="solar:add-linear"
+                                class="text-2xl transition-transform group-[.open]:rotate-45 flex-shrink-0"></iconify-icon>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="pb-6 text-[var(--text-muted)] leading-relaxed text-sm md:text-base">
+                                100%. Once the final payment is made, you own everything. No lock-in contracts or hidden
+                                recurring fees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CTA / CONTACT -->
+        <section id="contact"
+            class="min-h-screen bg-[var(--bg-color)] relative border-t border-[var(--border-color)] flex items-center justify-center overflow-hidden transition-colors duration-500 py-24">
+            <div class="section-label hidden sm:block">[ 09. START PROJECT ]</div>
+
+            <canvas id="network-canvas" class="particle-canvas"></canvas>
+
+            <div class="relative z-10 w-full max-w-5xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <div class="reveal-item fade-up text-center lg:text-left">
+                    <h2
+                        class="text-4xl md:text-6xl font-display font-medium tracking-tight mb-4 md:mb-6 text-[var(--text-main)]">
+                        Let's build<br>the future.
+                    </h2>
+                    <p class="text-lg md:text-xl text-[var(--text-main)] font-medium mb-4">
+                        — and make it convert.
+                    </p>
+                    <p class="text-base md:text-lg text-[var(--text-muted)] mb-6 max-w-md mx-auto lg:mx-0">
+                        Stop losing customers to outdated design. We're currently accepting new projects for <span
+                            id="current-quarter-year">Q1 2026</span>.
+                    </p>
+
+                    <!-- Scarcity & Availability Indicator -->
+                    <div
+                        class="flex items-center gap-3 mb-8 p-3 rounded-lg border border-[var(--border-color)] bg-[var(--glass-bg)] backdrop-blur-sm max-w-fit mx-auto lg:mx-0">
+                        <div class="flex items-center gap-1.5">
+                            <div class="w-2 h-2 bg-metric rounded-full animate-pulse"></div>
+                            <span class="text-xs font-semibold text-metric uppercase tracking-wide">2 Spots
+                                Available</span>
+                        </div>
+                        <div class="w-px h-4 bg-[var(--border-color)]"></div>
+                        <span id="current-month-year" class="text-xs text-[var(--text-muted)]">February 2026</span>
+                    </div>
+
+                    <!-- Not For Section -->
+                    <div
+                        class="text-xs text-[var(--text-muted)] mb-8 max-w-md mx-auto lg:mx-0 p-4 rounded-lg border border-[var(--border-color)] bg-[var(--glass-bg)]/50">
+                        <p class="font-semibold text-[var(--text-main)] mb-2">This might not be for you if:</p>
+                        <ul class="space-y-1 opacity-70">
+                            <li>→ You need a website by tomorrow</li>
+                            <li>→ You're looking for the cheapest option</li>
+                            <li>→ You want 12 rounds of revisions</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4 text-left inline-block lg:block">
+                        <div class="flex items-center gap-4 text-[var(--text-main)]">
+                            <div
+                                class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center">
+                                <iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon>
+                            </div>
+                            <span class="text-sm font-medium">hello@umbral.studio</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-[var(--text-main)]">
+                            <div
+                                class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center">
+                                <iconify-icon icon="solar:map-point-linear" class="text-xl"></iconify-icon>
+                            </div>
+                            <span class="text-sm font-medium">San Fransisco, DS / Global</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM -->
+                <div class="reveal-item fade-up bg-[var(--glass-bg)] border border-[var(--border-color)] p-8 md:p-10 rounded-3xl backdrop-blur-xl transition-all duration-500 hover:shadow-2xl"
+                    style="transition-delay: 0.1s">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-semibold">Full
+                                    Name</label>
+                                <input type="text" placeholder="John Doe"
+                                    class="w-full rounded-xl px-4 py-3 text-sm transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-semibold">Email
+                                    Address</label>
+                                <input type="email" placeholder="john@example.com"
+                                    class="w-full rounded-xl px-4 py-3 text-sm transition-colors">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-semibold">Project
+                                Type</label>
+                            <select class="w-full rounded-xl px-4 py-3 text-sm transition-colors appearance-none">
+                                <option>Web Design & Build</option>
+                                <option>Landing Page Optimization</option>
+                                <option>Product Strategy</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-semibold">Message</label>
+                            <textarea rows="4" placeholder="Tell us about your project..."
+                                class="w-full rounded-xl px-4 py-3 text-sm transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-[var(--text-main)] text-[var(--bg-color)] py-4 rounded-xl font-semibold text-sm tracking-widest uppercase hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+        class="footer-fixed bg-[var(--bg-color)] text-[var(--text-main)] transition-colors duration-500 pointer-events-none">
+        <div class="max-w-7xl w-full px-6 flex flex-col items-center text-center pointer-events-auto">
+            <h2
+                class="text-[12vw] md:text-[10vw] font-display font-semibold leading-none tracking-tighter text-[var(--text-muted)] opacity-20 hover:opacity-40 transition-opacity select-none">
+                UMBRAL</h2>
+
+            <div
+                class="mt-8 md:mt-12 flex flex-col md:flex-row w-full justify-between items-center text-[var(--text-muted)] text-[10px] md:text-xs uppercase tracking-widest border-t border-[var(--border-color)] pt-6 md:pt-8 pb-8 md:pb-0">
+                <div>© <span id="copyright-year">2026</span> Umbral Studio.</div>
+                <div class="flex gap-6 md:gap-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-[var(--text-main)] transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-[var(--text-main)] transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-[var(--text-main)] transition-colors">Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC SYSTEM -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 0. THEME TOGGLE LOGIC (Shared) ---
+            function toggleTheme() {
+                document.body.classList.toggle('light-mode');
+                const isLight = document.body.classList.contains('light-mode');
+
+                document.querySelectorAll('.theme-icon').forEach(icon => {
+                    const sun = icon.parentElement.querySelector('.dark-icon');
+                    // On mobile, we might not have the moon icon in DOM for simple toggle, so handle safely
+                    const moon = icon.parentElement.querySelector('.light-icon');
+
+                    if (sun && moon) {
+                        // Desktop animated toggle
+                        if (isLight) {
+                            sun.style.transform = 'rotate(-90deg) scale(0)';
+                            sun.style.opacity = '0';
+                            moon.style.transform = 'rotate(0) scale(1)';
+                            moon.style.opacity = '1';
+                        } else {
+                            sun.style.transform = 'rotate(0) scale(1)';
+                            sun.style.opacity = '1';
+                            moon.style.transform = 'rotate(90deg) scale(0)';
+                            moon.style.opacity = '0';
+                        }
+                    } else if (icon.classList.contains('dark-icon')) {
+                        // Mobile simpler toggle (just switch icon attr)
+                        if (isLight) {
+                            icon.setAttribute('icon', 'solar:moon-linear');
+                        } else {
+                            icon.setAttribute('icon', 'solar:sun-2-linear');
+                        }
+                    }
+                });
+            }
+
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+            // --- 0.1 MOBILE MENU LOGIC ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            menuToggle.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                const spans = menuToggle.querySelectorAll('span');
+
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    // small delay to allow display block to apply before opacity transition
+                    requestAnimationFrame(() => mobileMenu.classList.add('active'));
+                    document.body.style.overflow = 'hidden';
+
+                    // Hamburger animation
+                    spans[0].style.transform = 'translateY(4px) rotate(45deg)';
+                    spans[1].style.transform = 'translateY(-4px) rotate(-45deg)';
+                    spans[1].style.width = '32px';
+                } else {
+                    mobileMenu.classList.remove('active');
+                    setTimeout(() => mobileMenu.classList.add('hidden'), 500); // match transition
+                    document.body.style.overflow = '';
+
+                    // Hamburger reset
+                    spans[0].style.transform = 'none';
+                    spans[1].style.transform = 'none';
+                    spans[1].style.width = '20px';
+                }
+            });
+
+            // Close menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.click();
+                });
+            });
+
+
+            // --- 1. PRELOADER (Adaptive) ---
+            const preloader = document.getElementById('preloader');
+            const progress = document.getElementById('loader-progress');
+            let loadVal = 0;
+            let isWindowLoaded = false;
+
+            window.addEventListener('load', () => {
+                isWindowLoaded = true;
+            });
+
+            const loadInterval = setInterval(() => {
+                // Slower increment if window not loaded, faster if it is
+                const step = isWindowLoaded ? 15 : (Math.floor(Math.random() * 5) + 2);
+                loadVal += step;
+
+                if (loadVal >= 100) {
+                    loadVal = 100;
+                    clearInterval(loadInterval);
+                    finishLoading();
+                }
+                progress.style.width = loadVal + '%';
+            }, 30);
+
+            function finishLoading() {
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                    setTimeout(() => {
+                        document.querySelectorAll('.reveal-item').forEach(item => {
+                            const rect = item.getBoundingClientRect();
+                            if (rect.top < window.innerHeight) item.classList.add('active');
+                        });
+                    }, 400);
+                }, 300);
+            }
+
+            // --- 2. CURSOR (Only run on desktop) ---
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                const cursorDot = document.querySelector('.cursor-dot');
+                const cursorCircle = document.querySelector('.cursor-circle');
+                let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX; mouseY = e.clientY;
+                    cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
+                });
+
+                function animateCursor() {
+                    cursorX += (mouseX - cursorX) * 0.15; cursorY += (mouseY - cursorY) * 0.15;
+                    cursorCircle.style.left = cursorX + 'px'; cursorCircle.style.top = cursorY + 'px';
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor();
+
+                document.querySelectorAll('.hoverable, a, button').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursorCircle.classList.add('hovered'));
+                    el.addEventListener('mouseleave', () => cursorCircle.classList.remove('hovered'));
+                });
+            }
+
+            // --- 3. SCROLL REVEALS ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+
+            // --- 4. SCROLL PROGRESS ---
+            const progressBar = document.getElementById('progress-bar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+            });
+
+            // --- 5. PARTICLE CANVAS ---
+            function initCanvas(id) {
+                const canvas = document.getElementById(id);
+                if (!canvas) return;
+
+                const ctx = canvas.getContext('2d');
+                let width, height, particles = [];
+
+                function resize() {
+                    width = canvas.width = canvas.parentElement.offsetWidth;
+                    height = canvas.height = canvas.parentElement.offsetHeight;
+                    initParticles();
+                }
+
+                function initParticles() {
+                    particles = [];
+                    // Less particles on mobile
+                    const count = window.innerWidth < 768 ? 20 : 45;
+                    for (let i = 0; i < count; i++) {
+                        particles.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            vx: (Math.random() - 0.5) * 0.2,
+                            vy: (Math.random() - 0.5) * 0.2,
+                            size: Math.random() * 1.5 + 0.5
+                        });
+                    }
+                }
+
+                function draw() {
+                    ctx.clearRect(0, 0, width, height);
+                    const isLight = document.body.classList.contains('light-mode');
+                    ctx.fillStyle = isLight ? '#000' : '#fff';
+                    ctx.strokeStyle = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+
+                    particles.forEach(p => {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < 0 || p.x > width) p.vx *= -1;
+                        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        particles.forEach(p2 => {
+                            const dx = p.x - p2.x;
+                            const dy = p.y - p2.y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 100) {
+                                ctx.beginPath();
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.stroke();
+                            }
+                        });
+                    });
+                    requestAnimationFrame(draw);
+                }
+
+                window.addEventListener('resize', resize);
+                resize();
+                draw();
+            }
+
+            initCanvas('network-canvas');
+
+            // --- 6. CONTACT FORM HANDLING ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = contactForm.querySelector('button');
+                    const originalText = btn.innerHTML;
+
+                    btn.innerHTML = 'Sending...';
+                    btn.disabled = true;
+
+                    // Simulate API call
+                    setTimeout(() => {
+                        btn.innerHTML = 'Message Sent';
+                        btn.style.backgroundColor = 'var(--metric-accent)'; // theme-aware balanced green
+                        btn.style.color = '#fff';
+
+                        showToast('Thank you!', 'Your message has been sent successfully.', 'solar:check-circle-bold-duotone');
+
+                        contactForm.reset();
+
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                            btn.style.backgroundColor = '';
+                            btn.style.color = '';
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+
+            // --- 6.1 TOAST FUNCTION ---
+            function showToast(title, message, icon) {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+
+                toast.innerHTML = `
+                    <div class="toast-icon">
+                        <iconify-icon icon="${icon}"></iconify-icon>
+                    </div>
+                    <div>
+                        <div class="text-sm font-semibold">${title}</div>
+                        <div class="text-xs text-[var(--text-muted)]">${message}</div>
+                    </div>
+                `;
+
+                container.appendChild(toast);
+
+                // Animate in
+                requestAnimationFrame(() => {
+                    toast.classList.add('active');
+                });
+
+                // Animate out and remove
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 600);
+                }, 4000);
+            }
+
+            // --- 7. MAGNETIC BUTTONS ---
+            const magneticElements = document.querySelectorAll('.magnetic, a[href^="#"], button[type="submit"]');
+
+            magneticElements.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = 'translate(0, 0)';
+                });
+
+                el.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)';
+            });
+
+            // --- 8. AUTO-UPDATING DATES ---
+            const updateDates = () => {
+                const now = new Date();
+                const year = now.getFullYear();
+                const monthName = now.toLocaleString('default', { month: 'long' });
+
+                const monthYearEl = document.getElementById('current-month-year');
+                if (monthYearEl) monthYearEl.textContent = `${monthName} ${year}`;
+
+                const copyrightEl = document.getElementById('copyright-year');
+                if (copyrightEl) copyrightEl.textContent = year;
+
+                const qEl = document.getElementById('current-quarter-year');
+                const quarter = Math.floor(now.getMonth() / 3) + 1;
+                if (qEl) qEl.textContent = `Q${quarter} ${year}`;
+            };
+            updateDates();
+        });
+    </script>
+
+</body>
+
+</html>

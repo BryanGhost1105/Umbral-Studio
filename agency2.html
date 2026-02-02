@@ -1,0 +1,589 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umbral Studio | Strategy-First Web Design</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+/* Subtle vignette */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #050505 120%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.text-accent { color: #E2E8F0; } 
+.bg-accent { background-color: #E2E8F0; }
+
+.glass-card {
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-hover:hover {
+    background: rgba(25, 25, 25, 0.8);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* Animation utilities */
+.animate-fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(10px); }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Menu Transition */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+#mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+</style>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('open');
+    }
+</script>
+</head>
+<body class="antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-white/20 selection:text-white text-slate-400">
+
+    <!-- Navigation -->
+    <nav class="w-full fixed top-0 z-50 pt-4 sm:pt-6 px-4 sm:px-8">
+        <div class="glass-card max-w-7xl mx-auto rounded-2xl px-4 sm:px-6 py-4 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-black">
+                        <iconify-icon icon="solar:layers-minimalistic-bold" width="20"></iconify-icon>
+                    </div>
+                    <span class="font-medium text-lg tracking-tight text-white">Umbral.</span>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                    <a href="#philosophy" class="transition-colors hover:text-white">Philosophy</a>
+                    <a href="#work" class="transition-colors hover:text-white">Selected Work</a>
+                    <a href="#process" class="transition-colors hover:text-white">Process</a>
+                </div>
+
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="text-sm font-medium transition-colors hover:text-white">Client Login</a>
+                    <button class="bg-white px-5 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2 text-black hover:bg-slate-200 group">
+                        Start Project
+                        <iconify-icon icon="solar:arrow-right-linear" width="18" class="group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+                    </button>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button class="md:hidden text-white p-1" onclick="toggleMenu()">
+                    <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="flex flex-col gap-4 md:hidden">
+                <a href="#philosophy" class="text-sm font-medium text-slate-300 hover:text-white py-2 block" onclick="toggleMenu()">Philosophy</a>
+                <a href="#work" class="text-sm font-medium text-slate-300 hover:text-white py-2 block" onclick="toggleMenu()">Selected Work</a>
+                <a href="#process" class="text-sm font-medium text-slate-300 hover:text-white py-2 block" onclick="toggleMenu()">Process</a>
+                <div class="h-px bg-white/10 w-full my-1"></div>
+                <a href="#" class="text-sm font-medium text-slate-300 hover:text-white py-2 block">Client Login</a>
+                <button class="w-full bg-white px-5 py-3 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center justify-center gap-2 text-black hover:bg-slate-200 group">
+                    Start Project
+                    <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Hero Section -->
+    <main class="flex-grow flex px-4 sm:px-6 md:px-12 pt-32 sm:pt-40 pb-16 sm:pb-20 relative items-center justify-center border-b border-white/5">
+        <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left: Copy -->
+            <div class="flex flex-col gap-6 sm:gap-8 relative z-10 animate-fade-in text-center lg:text-left items-center lg:items-start">
+                
+                <div class="inline-flex items-center gap-2 glass-card px-3 py-1.5 rounded-full border border-white/5">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Now accepting Q4 Projects</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.1] text-white">
+                    Quiet design. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-600">Loud results.</span>
+                </h1>
+
+                <p class="text-base sm:text-lg font-light leading-relaxed max-w-lg text-slate-400">
+                    Umbral Studio builds strategy-first digital experiences for founders who value clarity over noise. We turn passive visitors into qualified leads through intelligent, minimal design.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+                    <button class="w-full sm:w-auto hover:bg-slate-200 transition-all duration-300 flex gap-2 text-base font-medium text-black bg-white h-12 rounded-lg px-6 items-center justify-center">
+                        Request Free Audit
+                    </button>
+                    <button class="w-full sm:w-auto hover:border-white/40 transition-all duration-300 flex gap-2 group hover:bg-white/5 text-base font-medium text-white h-12 border-white/10 border rounded-lg px-6 items-center justify-center">
+                        View Selected Work
+                    </button>
+                </div>
+
+                <div class="pt-4 sm:pt-8 flex flex-wrap justify-center lg:justify-start items-center gap-4 text-xs font-medium text-slate-500">
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-emerald-500"></iconify-icon> <span>No agencies</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-emerald-500"></iconify-icon> <span>Founder-led</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-emerald-500"></iconify-icon> <span>Results-focused</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Abstract Visualization -->
+            <div class="relative h-[400px] lg:h-[500px] w-full hidden md:flex items-center justify-center">
+                <!-- Abstract "Flow" representation -->
+                <div class="relative w-full h-full glass-card rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-transparent to-transparent"></div>
+                    
+                    <!-- Floating Nodes -->
+                    <div class="absolute top-12 left-12 w-32 h-20 border border-white/10 rounded-lg bg-black/40 backdrop-blur flex items-center justify-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-slate-600"></div>
+                        <div class="h-1 w-12 bg-slate-800 rounded"></div>
+                    </div>
+                    
+                    <div class="absolute bottom-20 right-12 w-40 h-24 border border-emerald-500/20 rounded-lg bg-emerald-900/10 backdrop-blur flex flex-col items-center justify-center gap-2 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+                        <span class="text-xs text-emerald-400 font-medium tracking-widest uppercase">Conversion</span>
+                        <div class="h-1 w-16 bg-emerald-500/20 rounded overflow-hidden">
+                             <div class="h-full w-2/3 bg-emerald-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Connecting Lines (SVG) -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
+                         <path d="M 20 20 Q 50 50 80 80" stroke="white" stroke-width="0.2" fill="none" stroke-dasharray="2 2"></path>
+                         <circle cx="50" cy="50" r="15" stroke="white" stroke-width="0.1" fill="none"></circle>
+                         <circle cx="50" cy="50" r="25" stroke="white" stroke-width="0.05" fill="none"></circle>
+                    </svg>
+
+                    <!-- Center Element -->
+                    <div class="relative z-10 glass-card p-6 rounded-xl border border-white/10">
+                        <iconify-icon icon="solar:graph-up-linear" width="32" class="text-white mb-2"></iconify-icon>
+                        <div class="space-y-2">
+                            <div class="w-24 h-2 bg-slate-700/50 rounded-full"></div>
+                            <div class="w-16 h-2 bg-slate-700/30 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Section 2: Trust & Philosophy -->
+    <section id="philosophy" class="py-16 sm:py-24 px-4 sm:px-12 border-b border-white/5 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Point 1 -->
+                <div class="flex flex-col gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white">
+                        <iconify-icon icon="solar:ruler-pen-linear" width="20"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white">Strategy, not just art.</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        A pretty website that doesn't sell is an expense, not an investment. We design backwards from your business goals, ensuring every pixel serves a purpose.
+                    </p>
+                </div>
+                 <!-- Point 2 -->
+                 <div class="flex flex-col gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white">
+                        <iconify-icon icon="solar:user-speak-linear" width="20"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white">Founder to Founder.</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        No junior account managers. You work directly with the lead strategist and designer. Clear communication, faster execution, and personalized attention.
+                    </p>
+                </div>
+                 <!-- Point 3 -->
+                 <div class="flex flex-col gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white">
+                        <iconify-icon icon="solar:shield-check-linear" width="20"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white">Quiet Authority.</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        We avoid hype and dark patterns. We build trust through clarity, speed, and premium aesthetics that position you as the leader in your niche.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section class="py-16 sm:py-24 px-4 sm:px-12 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 sm:mb-16 text-center sm:text-left">
+                <span class="text-slate-500 font-medium tracking-widest text-xs uppercase mb-2 block">Capabilities</span>
+                <h2 class="text-3xl font-medium text-white tracking-tight">Core Services</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <iconify-icon icon="solar:laptop-minimalistic-linear" width="24" class="text-slate-300 mb-6 group-hover:text-white transition-colors"></iconify-icon>
+                    <h3 class="text-base font-medium text-white mb-2">Website Design</h3>
+                    <p class="text-sm text-slate-500">Custom, responsive sites built to establish immediate credibility and authority.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <iconify-icon icon="solar:layers-linear" width="24" class="text-slate-300 mb-6 group-hover:text-white transition-colors"></iconify-icon>
+                    <h3 class="text-base font-medium text-white mb-2">Landing Pages</h3>
+                    <p class="text-sm text-slate-500">High-velocity pages designed specifically for campaigns and lead capture.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <iconify-icon icon="solar:refresh-linear" width="24" class="text-slate-300 mb-6 group-hover:text-white transition-colors"></iconify-icon>
+                    <h3 class="text-base font-medium text-white mb-2">Site Redesign</h3>
+                    <p class="text-sm text-slate-500">Modernize legacy sites to improve user experience and brand perception.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <iconify-icon icon="solar:tuning-linear" width="24" class="text-slate-300 mb-6 group-hover:text-white transition-colors"></iconify-icon>
+                    <h3 class="text-base font-medium text-white mb-2">Optimization</h3>
+                    <p class="text-sm text-slate-500">Data-driven tweaks to reduce friction and increase conversion rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Selected Work -->
+    <section id="work" class="py-16 sm:py-24 px-4 sm:px-12 border-t border-white/5 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl font-medium text-white tracking-tight">Recent Work</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Case Study 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2564&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-all duration-500 group-hover:scale-105 saturate-0 group-hover:saturate-50" alt="Abstract Dark UI">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="glass-card px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                                <span class="text-xs font-medium text-white">View Case Study</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start">
+                        <div>
+                            <h3 class="text-lg font-medium text-white mb-1">FinTech SaaS Launch</h3>
+                            <p class="text-sm text-slate-500">Strategy, UI/UX, Webflow Development</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0 sm:text-right">
+                            <p class="text-xs font-medium text-emerald-400">30% Increase in Demos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&amp;w=2670&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-all duration-500 group-hover:scale-105 saturate-0 group-hover:saturate-50" alt="Architecture Minimal">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="glass-card px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                                <span class="text-xs font-medium text-white">View Case Study</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start">
+                        <div>
+                            <h3 class="text-lg font-medium text-white mb-1">Architectural Firm Portfolio</h3>
+                            <p class="text-sm text-slate-500">Rebranding, Design System</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0 sm:text-right">
+                            <p class="text-xs font-medium text-emerald-400">2x Lead Quality</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Metrics (Directional) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-12 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+                <!-- Metric 1 -->
+                <div class="p-4 sm:p-6 border-l border-white/10">
+                    <iconify-icon icon="solar:stopwatch-linear" width="24" class="text-slate-400 mb-4"></iconify-icon>
+                    <p class="text-lg sm:text-2xl font-medium text-white mb-1">Faster Load</p>
+                    <p class="text-xs text-slate-500">Optimized for speed &amp; retention</p>
+                </div>
+                <!-- Metric 2 -->
+                <div class="p-4 sm:p-6 border-l border-white/10">
+                    <iconify-icon icon="solar:users-group-rounded-linear" width="24" class="text-slate-400 mb-4"></iconify-icon>
+                    <p class="text-lg sm:text-2xl font-medium text-white mb-1">Lower Bounce</p>
+                    <p class="text-xs text-slate-500">Engaging, relevant layouts</p>
+                </div>
+                <!-- Metric 3 -->
+                <div class="p-4 sm:p-6 border-l border-white/10">
+                    <iconify-icon icon="solar:cursor-linear" width="24" class="text-slate-400 mb-4"></iconify-icon>
+                    <p class="text-lg sm:text-2xl font-medium text-white mb-1">Clear CTAs</p>
+                    <p class="text-xs text-slate-500">Frictionless user pathways</p>
+                </div>
+                <!-- Metric 4 -->
+                <div class="p-4 sm:p-6 border-l border-white/10">
+                    <iconify-icon icon="solar:graph-new-up-linear" width="24" class="text-slate-400 mb-4"></iconify-icon>
+                    <p class="text-lg sm:text-2xl font-medium text-white mb-1">Higher Conversion</p>
+                    <p class="text-xs text-slate-500">Revenue-focused design</p>
+                </div>
+            </div>
+            <p class="mt-8 text-xs text-slate-600 text-center">* Results vary by project scope and industry.</p>
+        </div>
+    </section>
+
+    <!-- Section 6: Testimonials -->
+    <section class="py-16 sm:py-24 px-4 sm:px-12 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-medium text-white tracking-tight mb-12 sm:mb-16 text-center sm:text-left">Client Perspectives</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative">
+                    <iconify-icon icon="solar:quote-up-linear" class="absolute top-6 right-6 sm:top-8 sm:right-8 text-slate-700" width="24"></iconify-icon>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6 font-light">"Umbral cut through the noise. They didn't just design a site; they helped us clarify our entire value proposition. The new site is closing deals for us."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs text-white">MK</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Marcus K.</p>
+                            <p class="text-xs text-slate-500">Founder, Apex Digital</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative">
+                    <iconify-icon icon="solar:quote-up-linear" class="absolute top-6 right-6 sm:top-8 sm:right-8 text-slate-700" width="24"></iconify-icon>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6 font-light">"Professional, calm, and incredibly strategic. We moved from a DIY site to a premium presence in 4 weeks. Highly recommended."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs text-white">JL</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Sarah Jenkins</p>
+                            <p class="text-xs text-slate-500">CEO, Horizon Ventures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative">
+                    <iconify-icon icon="solar:quote-up-linear" class="absolute top-6 right-6 sm:top-8 sm:right-8 text-slate-700" width="24"></iconify-icon>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6 font-light">"The conversion audit was an eye-opener. The redesign fixed leaks we didn't even know we had. A true partner in growth."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs text-white">DR</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">David Ross</p>
+                            <p class="text-xs text-slate-500">Product Lead, Structura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Process -->
+    <section id="process" class="py-16 sm:py-24 px-4 sm:px-12 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl font-medium text-white tracking-tight">How We Work</h2>
+            </div>
+            
+            <div class="space-y-12 relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-[19px] top-4 bottom-4 w-px bg-white/10 hidden sm:block"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col sm:flex-row gap-6 relative">
+                    <div class="w-10 h-10 rounded-full bg-[#0A0A0A] border border-white/20 flex items-center justify-center text-sm font-medium text-white z-10 shrink-0 self-start sm:self-auto">1</div>
+                    <div>
+                        <h3 class="text-lg font-medium text-white mb-2">Discovery &amp; Strategy</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed max-w-lg">We dive deep into your business model, audience, and goals. We don't touch a pixel until we have a clear roadmap for conversion.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col sm:flex-row gap-6 relative">
+                    <div class="w-10 h-10 rounded-full bg-[#0A0A0A] border border-white/20 flex items-center justify-center text-sm font-medium text-white z-10 shrink-0 self-start sm:self-auto">2</div>
+                    <div>
+                        <h3 class="text-lg font-medium text-white mb-2">Design &amp; Build</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed max-w-lg">We craft the visual identity and structure. Clean code, responsive layouts, and performance optimization are standard.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col sm:flex-row gap-6 relative">
+                    <div class="w-10 h-10 rounded-full bg-[#0A0A0A] border border-white/20 flex items-center justify-center text-sm font-medium text-white z-10 shrink-0 self-start sm:self-auto">3</div>
+                    <div>
+                        <h3 class="text-lg font-medium text-white mb-2">Launch &amp; Support</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed max-w-lg">We handle the technical launch and ensure everything runs smoothly. Post-launch support ensures your site grows with you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Lead Magnet / Incentive -->
+    <section class="py-16 sm:py-24 px-4 sm:px-12 relative overflow-hidden bg-white/[0.02]">
+        <div class="max-w-5xl mx-auto glass-card rounded-3xl p-6 sm:p-12 border border-white/10 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-3 py-1 rounded-full bg-emerald-900/30 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6">
+                        Limited Availability
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-medium text-white mb-4">Free Conversion Audit</h2>
+                    <p class="text-slate-400 font-light mb-8 text-sm leading-relaxed">
+                        Unsure why your current site isn't performing? Request a complimentary 15-minute video review. I'll personally analyze your landing page and identify 3 actionable improvements.
+                    </p>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-slate-300">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-white"></iconify-icon> Video walkthrough of your site
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-white"></iconify-icon> UX &amp; Design critique
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-white"></iconify-icon> Zero obligation to hire
+                        </li>
+                    </ul>
+
+                    <button class="w-full bg-white text-black font-medium h-12 px-8 rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                        Request My Audit
+                        <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+                    </button>
+                    <p class="text-xs text-slate-600 mt-4 text-center sm:text-left">No credit card required. No sales pitch.</p>
+                </div>
+
+                <!-- Abstract Visual -->
+                <div class="relative h-64 lg:h-full w-full rounded-2xl bg-[#050505] border border-white/5 flex items-center justify-center overflow-hidden hidden sm:flex">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_70%)]"></div>
+                    <!-- Mockup abstraction -->
+                    <div class="w-48 h-64 bg-neutral-900 rounded-t-xl border-t border-x border-white/10 relative top-8 shadow-2xl flex flex-col p-3 gap-2">
+                        <div class="flex gap-1.5 mb-2">
+                            <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                            <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                        </div>
+                        <div class="w-full h-20 bg-white/5 rounded"></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="h-12 bg-white/5 rounded"></div>
+                            <div class="h-12 bg-white/5 rounded"></div>
+                        </div>
+                         <!-- Highlighting circle -->
+                         <div class="absolute top-16 right-4 w-8 h-8 border-2 border-emerald-500 rounded-full animate-pulse opacity-80"></div>
+                         <div class="absolute top-16 right-12 w-12 h-[1px] bg-emerald-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Final CTA -->
+    <section class="py-24 sm:py-32 px-4 sm:px-12 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-medium text-white mb-6 tracking-tight">Ready to elevate your presence?</h2>
+            <p class="text-slate-400 font-light text-lg mb-10">
+                Stop losing customers to confusing design. Let's build a platform that commands respect and drives revenue.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto bg-white text-black font-medium h-14 px-10 rounded-lg hover:bg-slate-200 transition-colors">
+                    Book Strategy Call
+                </button>
+                <button class="w-full sm:w-auto text-white font-medium h-14 px-10 rounded-lg border border-white/10 hover:bg-white/5 transition-colors">
+                    View Pricing
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-[#030303] pt-16 sm:pt-20 pb-10 px-4 sm:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2 flex flex-col items-start gap-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white">
+                            <iconify-icon icon="solar:layers-minimalistic-linear" width="20"></iconify-icon>
+                        </div>
+                        <span class="font-medium text-lg tracking-tight text-white">Umbral Studio</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light max-w-xs">
+                        Premium web design and conversion strategy for forward-thinking founders.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><iconify-icon icon="solar:letter-linear" width="20"></iconify-icon></a>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><iconify-icon icon="brandico:twitter-bird" width="18"></iconify-icon></a> 
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><iconify-icon icon="brandico:linkedin" width="18"></iconify-icon></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="grid grid-cols-2 gap-8 md:col-span-2 md:grid-cols-2">
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-6">Menu</h4>
+                        <ul class="space-y-4 text-sm text-slate-500">
+                            <li><a href="#" class="hover:text-white transition-colors">Work</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Process</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal -->
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-6">Legal</h4>
+                        <ul class="space-y-4 text-sm text-slate-500">
+                            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-slate-600 text-xs">© 2024 Umbral Studio. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-xs text-slate-600">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    Accepting new projects for Q4
+                </div>
+            </div>
+        </div>
+    </footer>
+</body></html>
