@@ -1,0 +1,6 @@
+{
+  "name": "Umbral Studio",
+  "description": "Simplify subscriptions and grow your agency faster with Umbral Studio. Unlimited web design and no-code solutions to boost business growth effortlessly.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
