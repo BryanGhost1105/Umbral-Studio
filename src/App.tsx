@@ -288,23 +288,18 @@ export default function App() {
 
         {/* Stats Block (Dashes bordered) */}
         <div className="w-full max-w-[900px] mx-auto px-6 border-b border-dashed border-[#EAEAEA] mb-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-dashed border-[#EAEAEA]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-dashed border-[#EAEAEA]">
             {/* Stat 1 */}
-            <div className="flex flex-col gap-1 p-4 md:p-6 border-b md:border-b-0 md:border-r border-dashed border-[#EAEAEA]">
+            <div className="flex flex-col gap-1 p-4 md:p-6 border-b sm:border-b-0 sm:border-r border-dashed border-[#EAEAEA]">
               <span className="text-[10px] md:text-[11px] font-semibold text-[#787774] font-sans">Projects completed</span>
-              <span className="text-2xl md:text-[32px] font-display font-medium text-[#111111] tracking-tight leading-none">120+</span>
+              <span className="text-2xl md:text-[32px] font-display font-medium text-[#111111] tracking-tight leading-none">10+</span>
             </div>
             {/* Stat 2 */}
-            <div className="flex flex-col gap-1 p-4 md:p-6 border-b md:border-b-0 md:border-r border-dashed border-[#EAEAEA]">
+            <div className="flex flex-col gap-1 p-4 md:p-6 border-b sm:border-b-0 sm:border-r border-dashed border-[#EAEAEA]">
               <span className="text-[10px] md:text-[11px] font-semibold text-[#787774] font-sans">Satisfaction rate</span>
               <span className="text-2xl md:text-[32px] font-display font-medium text-[#111111] tracking-tight leading-none">95%</span>
             </div>
             {/* Stat 3 */}
-            <div className="flex flex-col gap-1 p-4 md:p-6 border-r-0 md:border-r border-dashed border-[#EAEAEA]">
-              <span className="text-[10px] md:text-[11px] font-semibold text-[#787774] font-sans">In generated revenue</span>
-              <span className="text-2xl md:text-[32px] font-display font-medium text-[#111111] tracking-tight leading-none">$1M+</span>
-            </div>
-            {/* Stat 4 */}
             <div className="flex flex-col gap-1 p-4 md:p-6">
               <span className="text-[10px] md:text-[11px] font-semibold text-[#787774] font-sans">Client retention rate</span>
               <span className="text-2xl md:text-[32px] font-display font-medium text-[#111111] tracking-tight leading-none">80%</span>
@@ -334,14 +329,10 @@ export default function App() {
           </h2>
 
           {/* Stats Column Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-6 mt-16 pt-16 border-t border-[#EAEAEA]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-6 mt-16 pt-16 border-t border-[#EAEAEA]">
             <div className="flex flex-col items-center">
-              <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">250+</span>
+              <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">10+</span>
               <span className="text-[10px] font-bold text-[#787774] uppercase tracking-[0.2em] mt-3">Projects Delivered</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">45+</span>
-              <span className="text-[10px] font-bold text-[#787774] uppercase tracking-[0.2em] mt-3">Active Brands</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">72-<span className="text-3xl text-[#787774]">hr</span></span>
