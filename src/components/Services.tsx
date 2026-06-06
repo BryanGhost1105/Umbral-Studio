@@ -1,6 +1,17 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
+// Custom brand images
+import brand1 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.03 PM.jpeg";
+import brand2 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.07 PM (2).jpeg";
+import brand3 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.08 PM (1).jpeg";
+import brand4 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.08 PM.jpeg";
+import brand5 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.11 PM (1).jpeg";
+import brand6 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.11 PM (2).jpeg";
+import brand7 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.11 PM.jpeg";
+import brand8 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.12 PM (1).jpeg";
+import brand9 from "../assets/images/brands/WhatsApp Image 2026-01-30 at 3.23.12 PM.jpeg";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -58,9 +69,9 @@ export function Services() {
                 </p>
                 
                 <div className="grid grid-cols-3 gap-2 mb-8">
-                  <img src="https://images.unsplash.com/photo-1600697395543-ef3ee6e9af7b?auto=format&fit=crop&q=80&w=200&h=200" alt="Brand concept 1" className="w-full aspect-square object-cover rounded-xl" />
-                  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=200&h=200" alt="Brand concept 2" className="w-full aspect-square object-cover rounded-xl" />
-                  <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=200&h=200" alt="Brand concept 3" className="w-full aspect-square object-cover rounded-xl grayscale" />
+                  <img src={brand1} alt="Brand concept 1" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand2} alt="Brand concept 2" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand3} alt="Brand concept 3" className="w-full aspect-square object-cover rounded-xl grayscale" />
                 </div>
               </div>
 
@@ -87,9 +98,9 @@ export function Services() {
                 </p>
                 
                 <div className="grid grid-cols-3 gap-2 mb-8 group-hover:-translate-y-1 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200&h=200" alt="Code 1" className="w-full aspect-square object-cover rounded-xl" />
-                  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=200&h=200" alt="Code 2" className="w-full aspect-square object-cover rounded-xl grayscale opacity-80" />
-                  <img src="https://images.unsplash.com/photo-1542744094-24638ea0b5b3?auto=format&fit=crop&q=80&w=200&h=200" alt="Code 3" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand4} alt="Code 1" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand5} alt="Code 2" className="w-full aspect-square object-cover rounded-xl grayscale opacity-80" />
+                  <img src={brand6} alt="Code 3" className="w-full aspect-square object-cover rounded-xl" />
                 </div>
               </div>
 
@@ -115,9 +126,9 @@ export function Services() {
                 </p>
                 
                 <div className="grid grid-cols-3 gap-2 mb-8">
-                  <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=200&h=200" alt="UI/UX design 1" className="w-full aspect-square object-cover rounded-xl" />
-                  <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=200&h=200" alt="UI/UX design 2" className="w-full aspect-square object-cover rounded-xl grayscale" />
-                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=200&h=200" alt="UI/UX design 3" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand7} alt="UI/UX design 1" className="w-full aspect-square object-cover rounded-xl" />
+                  <img src={brand8} alt="UI/UX design 2" className="w-full aspect-square object-cover rounded-xl grayscale" />
+                  <img src={brand9} alt="UI/UX design 3" className="w-full aspect-square object-cover rounded-xl" />
                 </div>
               </div>
 
