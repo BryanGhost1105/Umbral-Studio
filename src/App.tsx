@@ -282,7 +282,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#111111] text-white px-6 py-2.5 md:py-3 md:px-7 rounded-lg font-sans font-semibold text-xs hover:bg-[#222222] transition-colors active:scale-[0.98] mb-10 cursor-pointer"
           >
-            View plans
+            Start Building
           </motion.button>
         </div>
 
@@ -329,10 +329,14 @@ export default function App() {
           </h2>
 
           {/* Stats Column Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-6 mt-16 pt-16 border-t border-[#EAEAEA]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-6 mt-16 pt-16 border-t border-[#EAEAEA]">
             <div className="flex flex-col items-center">
               <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">10+</span>
               <span className="text-[10px] font-bold text-[#787774] uppercase tracking-[0.2em] mt-3">Projects Delivered</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">∞</span>
+              <span className="text-[10px] font-bold text-[#787774] uppercase tracking-[0.2em] mt-3">Design Iterations</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="font-mono font-medium text-4xl md:text-5xl text-[#111111] tracking-tight">72-<span className="text-3xl text-[#787774]">hr</span></span>

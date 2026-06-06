@@ -23,9 +23,6 @@ import art1 from "./assets/images/art/details (1).png";
 import art2 from "./assets/images/art/details (2).png";
 import art3 from "./assets/images/art/details (3).png";
 
-import studioHero from "./assets/images/studio/hero.png";
-import studio1 from "./assets/images/studio/details (1).png";
-import studio2 from "./assets/images/studio/details (2).png";
 
 import runImg from "./assets/images/hero_blur_runner_1779377149421.png";
 import orisImg from "./assets/images/pack_oris_1779377173299.png";
@@ -140,24 +137,6 @@ export const PROJECTS: ProjectType[] = [
         art1,
         art2,
         art3
-      ]
-    }
-  },
-  {
-    id: "studio",
-    brandName: "Studio agency",
-    tags: ["Creative", "Agency"],
-    image: studioHero,
-    bgColor: "bg-[#f4f4f4]",
-    details: {
-      description: "A creative agency website with heavy focus on bold typography, smooth scrolling animations, and a distinctive dark mode. A showcase of modern web capabilities.",
-      role: "Development & Motion",
-      timeline: "4 Weeks",
-      liveUrl: "https://umbral-studio.vercel.app",
-      images: [
-        studioHero,
-        studio1,
-        studio2
       ]
     }
   }
