@@ -246,7 +246,7 @@ export default function App() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-[#EAEAEA] rounded-full shadow-sm mb-5 select-none"
           >
-            <span className="text-[10px] md:text-[11px] font-semibold text-[#111111] pl-2 font-sans tracking-[0.01em]">Trusted by 40+ companies</span>
+            <span className="text-[10px] md:text-[11px] font-semibold text-[#111111] pl-2 font-sans tracking-[0.01em]">10+ businesses already building with us</span>
             <div className="flex -space-x-2 mr-1">
               <img className="w-4 h-4 md:w-5 md:h-5 rounded-full border-[1.5px] border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" referrerPolicy="no-referrer" />
               <img className="w-4 h-4 md:w-5 md:h-5 rounded-full border-[1.5px] border-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" referrerPolicy="no-referrer"/>
